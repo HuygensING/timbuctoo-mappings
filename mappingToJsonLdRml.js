@@ -15,18 +15,8 @@ export default function mappingToJsonLdRml(mapping, vre, archetypes) {
     .filter((relationType) => relationsToExisting.indexOf(relationType.name) > -1)
     .map((relationType) => relationType.relation.targetCollection);
 
-  console.log("There are these relationTypes mapped to existing datasets", relationsToExisting);
-  console.log("They need these archetypes to work", desiredArchetypes);
-  console.log("And we actually mapped these archetypes", mappedArchetypes);
-
   const missingArchetypes = desiredArchetypes
     .filter((da) => mappedArchetypes.indexOf(da) < 0);
-
-  console.log("So we need to somehow spoof these missing archetypes", missingArchetypes);
-
-  console.log("It needs to look like this",
-   Object.keys(mapping.collections).map(key => mapping.collections[key])[0]);
-
 
   return {
   	"@context": {
