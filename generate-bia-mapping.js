@@ -139,6 +139,28 @@ function extendMappings() {
     return {
       collections: {
         ...mappings.collections,
+        Persons: {
+          ...mappings.collections.Persons,
+          mappings: [
+            ...mappings.collections.Persons.mappings,
+            {
+              property: "createdBy",
+              variable: [{
+                variableName: "creator_id",
+                targetCollection: "Users",
+                targetVariableName: "id"
+              }]
+            },
+            {
+              property: "modifiedBy",
+              variable: [{
+                variableName: "modifier_id",
+                targetCollection: "Users",
+                targetVariableName: "id"
+              }]
+            }
+          ]
+        },
         Users: {
           archetypeName: "concepts",
           mappings: [
@@ -157,8 +179,8 @@ function extendMappings() {
           ]
         }
       }
-      }
-  };
+    }
+  }
 }
 
 const vre = process.env.VRE_ID;
