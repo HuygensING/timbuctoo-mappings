@@ -132,9 +132,38 @@ const mappings = {
     }
   }
 };
+
+function extendMappings() {
+  if (process.env.EXTENDED_MAPPINGS !== "true") { return mappings; }
+  else {
+    return {
+      collections: {
+        ...mappings.collections,
+        Users: {
+          archetypeName: "concepts",
+          mappings: [
+            {
+              property: "name",
+              variable: [{ variableName: "name"}]
+            },
+            {
+              property: "email",
+              variable: [{variableName: "email"}]
+            },
+            {
+              property: "role",
+              variable: [{variableName: "rolestring"}]
+            }
+          ]
+        }
+      }
+      }
+  };
+}
+
 const vre = process.env.VRE_ID;
 
-const jsonLd = JSON.stringify(mappingToJsonLdRml(mappings, vre, archetypes));
+const jsonLd = JSON.stringify(mappingToJsonLdRml(extendMappings(), vre, archetypes));
 
 console.log("JSON LD:\n===========");
 console.log(JSON.stringify(JSON.parse(jsonLd), null, '  '));

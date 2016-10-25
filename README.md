@@ -35,3 +35,12 @@ export VRE_ID=12345677890____________BIA_Master_WERFILE # (replace with the corr
 node run-bia-mapping.js
 ```
 
+
+## Experimental extended mappings
+
+To test with data that is not yet supported by an archetype, also ```export EXTENDED_MAPPINGS=true``` 
+```sh
+$ export EXTENDED_MAPPINGS=true
+$ export VRE_ID={vre} 
+$ node run-bia-mapping.js
+```
