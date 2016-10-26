@@ -34,13 +34,3 @@ export AUTH_HEADER=884c926f-5767-40ca-a96e-9978107fbaa2 # (replace with the corr
 export VRE_ID=12345677890____________BIA_Master_WERFILE # (replace with the correct VRE_ID)
 node run-bia-mapping.js
 ```
-
-
-## Experimental extended mappings
-
-To test with data that is not yet supported by an archetype, also ```export EXTENDED_MAPPINGS=true``` 
-```sh
-$ export EXTENDED_MAPPINGS=true
-$ export VRE_ID={vre} 
-$ node run-bia-mapping.js
-```

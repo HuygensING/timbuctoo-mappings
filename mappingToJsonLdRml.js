@@ -37,6 +37,9 @@ export default function mappingToJsonLdRml(mapping, vre, archetypes) {
       },
       "class": {
         "@type": "@id"
+      },
+      "object": {
+        "@type": "@id"
       }
   	},
   	"@graph": Object.keys(mapping.collections)
@@ -63,10 +66,11 @@ function mapSheet(key, sheet, vre) {
 			}
 		},
     "subjectMap": {
-			"class": makeMapName(vre, key),
 			"template": `${makeMapName(vre, key)}/{tim_id}`
 		},
-    "predicateObjectMap": sheet.mappings.map(makePredicateObjectMap.bind(null, vre))
+    "predicateObjectMap": [
+      {"object": makeMapName(vre, key), "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"}
+    ].concat(sheet.mappings.map(makePredicateObjectMap.bind(null, vre)))
   };
 }
 
@@ -92,6 +96,13 @@ function makePredicateObjectMap(vre, mapping) {
       },
       "predicate": `http://timbuctoo.com/${property}`,
       "http://timbuctoo.com/mapping/existingTimbuctooVre": variable.targetExistingTimbuctooVre
+    }
+  } else if (variable.templateName) {
+    return {
+      "objectMap": {
+        "template": `http://timbuctoo.com/${vre}/sheetLocal/${variable.templateName}/{${variable.variableName}}`
+      },
+      "predicate": "http://www.w3.org/2002/07/owl#sameAs"
     }
   } else {
     return {
