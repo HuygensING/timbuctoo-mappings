@@ -170,6 +170,112 @@ const mappings = {
           variable: [{ variableName: "filename" }]
         }
       ]
+    },
+    Person_person_relations: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "hasPersonToPersonRelationType",
+          variable: [{
+            variableName: "type",
+            targetCollection: "Person_person_relations_type",
+            targetVariableName: "ID"
+          }]
+        },
+        {
+          property: "hasFirstPerson",
+          variable: [{
+            variableName: "first_person_persistent_id",
+            targetCollection: "Persons",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "hasSecondPerson",
+          variable: [{
+            variableName: "second_person_persistent_id",
+            targetCollection: "Persons",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "from",
+          variable: [{ variableName: "datable_from" }]
+        },
+        {
+          property: "to",
+          variable: [{ variableName: "datable_to" }]
+        }
+      ]
+    },
+    Person_person_relations_type: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "label",
+          variable: [{ variableName: "label" }]
+        }
+      ]
+    },
+    States_type: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "label",
+          variable: [{ variableName: "label" }]
+        }
+      ]
+    },
+    States: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "hasStateType",
+          variable: [{
+            variableName: "type",
+            targetCollection: "States_type",
+            targetVariableName: "ID"
+          }]
+        },
+        {
+          property: "isStateOfPerson",
+          variable: [{
+            variableName: "person_persistant_id",
+            targetCollection: "Persons",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "label",
+          variable: [{
+            variableName: "description"
+          }]
+        },
+        {
+          property: "isStateLinkedToInstitute",
+          variable: [{
+            variableName: "institute_persistant_id",
+            targetCollection: "Institutes",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "isStateLinkedToLocation",
+          variable: [{
+            variableName: "place_persistant_id",
+            targetCollection: "Places",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "from",
+          variable: [{ variableName: "datable_from" }]
+        },
+        {
+          property: "to",
+          variable: [{ variableName: "datable_to" }]
+        }
+      ]
     }
   }
 };
