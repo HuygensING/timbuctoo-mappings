@@ -198,6 +198,15 @@ const mappings = {
         }
       ]
     },
+    Fields_of_interest: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "label",
+          variable: [{ variableName: "label" }]
+        }
+      ]
+    },
     Person_person_relations: {
       archetypeName: "concepts",
       mappings: [
@@ -311,6 +320,83 @@ const mappings = {
             variableName: "data"
           }]
         }
+      ]
+    },
+    Scientist_bios: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "isScientistBioOf",
+          variable: [{
+            variableName: "person_persistant_id",
+            targetCollection: "Persons",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "label",
+          variable: [{
+            variableName: "claim_to_fame"
+          }]
+        },
+        {
+          property: "claim_to_fame",
+          variable: [{
+            variableName: "claim_to_fame"
+          }]
+        },
+        {
+          property: "biography",
+          variable: [{
+            variableName: "biography"
+          }]
+        },
+        {
+          property: "work_years",
+          variable: [{
+            variableName: "work_years"
+          }]
+        },
+        {
+          property: "highest_degree",
+          variable: [{
+            variableName: "highest_degree"
+          }]
+        },
+        {
+          property: "dissertation_title",
+          variable: [{
+            variableName: "dissertation_title"
+          }]
+        },
+        {
+          property: "sources",
+          variable: [{
+            variableName: "sources"
+          }]
+        },
+        {
+          property: "sources_reliability",
+          variable: [{
+            variableName: "sources_reliability"
+          }]
+        },
+        {
+          property: "remarks",
+          variable: [{
+            variableName: "remarks"
+          }]
+        },
+        ...[1,2,3,4,5,6,7,8,9,10].map((num) => (
+        {
+          property: "hasFieldOfInterest",
+          variable: [{
+            variableName: `field_of_interest_id_${num}`,
+            targetCollection: "Fields_of_interest",
+            targetVariableName: "ID"
+          }]
+        }
+        ))
       ]
     }
   }
