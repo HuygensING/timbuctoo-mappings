@@ -171,6 +171,33 @@ const mappings = {
         }
       ]
     },
+    Person_person_relations_type: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "label",
+          variable: [{ variableName: "label" }]
+        }
+      ]
+    },
+    States_type: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "label",
+          variable: [{ variableName: "label" }]
+        }
+      ]
+    },
+    Data_lines_type: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "label",
+          variable: [{ variableName: "label" }]
+        }
+      ]
+    },
     Person_person_relations: {
       archetypeName: "concepts",
       mappings: [
@@ -205,24 +232,6 @@ const mappings = {
         {
           property: "to",
           variable: [{ variableName: "datable_to" }]
-        }
-      ]
-    },
-    Person_person_relations_type: {
-      archetypeName: "concepts",
-      mappings: [
-        {
-          property: "label",
-          variable: [{ variableName: "label" }]
-        }
-      ]
-    },
-    States_type: {
-      archetypeName: "concepts",
-      mappings: [
-        {
-          property: "label",
-          variable: [{ variableName: "label" }]
         }
       ]
     },
@@ -274,6 +283,33 @@ const mappings = {
         {
           property: "to",
           variable: [{ variableName: "datable_to" }]
+        }
+      ]
+    },
+    Data_lines: {
+      archetypeName: "concepts",
+      mappings: [
+        {
+          property: "hasDataLineType",
+          variable: [{
+            variableName: "type",
+            targetCollection: "Data_lines_type",
+            targetVariableName: "ID"
+          }]
+        },
+        {
+          property: "isDataLineForPerson",
+          variable: [{
+            variableName: "person_persistant_id",
+            targetCollection: "Persons",
+            targetVariableName: "persistent_id"
+          }]
+        },
+        {
+          property: "label",
+          variable: [{
+            variableName: "data"
+          }]
         }
       ]
     }
