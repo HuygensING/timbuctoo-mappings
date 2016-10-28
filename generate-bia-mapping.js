@@ -95,6 +95,10 @@ const mappings = {
       archetypeName: "collectives",
       mappings: [
         {
+          property: "sameAs",
+          variable: [ { templateName: "Institutes", variableName: "persistent_id" } ]
+        },
+        {
           property: "name",
           variable: [{
             variableName: "name"
@@ -112,6 +116,10 @@ const mappings = {
     Places: {
       archetypeName: "locations",
       mappings: [
+        {
+          property: "sameAs",
+          variable: [ { templateName: "Places", variableName: "persistent_id" } ]
+        },
         {
           property: "name",
           variable: [{ variableName: "name" }]
@@ -429,7 +437,48 @@ const mappingDocument = {
           "predicate": "http://timbuctoo.com/isCreatedBy"
         }
       ]
-    }
+    },
+    {
+      "@id": `http://timbuctoo.com/mapping/${vre}/Place_name_variants`,
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Place_name_variants",
+          "tim:vreName": vre
+        }
+      },
+      "subjectMap": {
+        "template": `http://timbuctoo.com/${vre}/sheetLocal/Places/{place_persistent_id}`
+      },
+      "predicateObjectMap": [
+        {
+          "objectMap": {
+            "column": "name"
+          },
+          "predicate": "http://www.w3.org/2004/02/skos/core#altLabel"
+        }
+      ]
+    },
+    {
+      "@id": `http://timbuctoo.com/mapping/${vre}/Institute_name_variants`,
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Institute_name_variants",
+          "tim:vreName": vre
+        }
+      },
+      "subjectMap": {
+        "template": `http://timbuctoo.com/${vre}/sheetLocal/Institutes/{institute_persistant_id}`
+      },
+      "predicateObjectMap": [
+        {
+          "objectMap": {
+            "column": "name"
+          },
+          "predicate": "http://www.w3.org/2004/02/skos/core#altLabel"
+        }
+      ]
+    },
+
   ]
 };
 
