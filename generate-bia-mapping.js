@@ -30,23 +30,28 @@ const mappings = {
           variable: [ { templateName: "Persons", variableName: "persistent_id" } ]
         },
         {
-          property: "familyName",
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "surname",
           variable: [{ variableName: "family_name" }]
         },
         {
-          property: "givenName",
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "forename",
           variable: [{ variableName: "given_name" }]
         },
         {
-          property: "preposition",
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "roleName",
           variable: [ { variableName: "preposition" }]
         },
         {
-          property: "intraposition",
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "nameLink",
           variable: [ { variableName: "intraposition" }]
         },
         {
-          property: "postposition",
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "genName",
           variable: [ { variableName: "postposition" }]
         },
         {

@@ -77,6 +77,8 @@ function mapSheet(key, sheet, vre) {
 function makePredicateObjectMap(vre, mapping) {
   let property = mapping.property;
   let variable = mapping.variable[0];
+  let predicateNamespace = mapping.predicateNamespace || "http://timbuctoo.com/";
+
   if (variable.targetCollection) {
     return {
       "objectMap": {
@@ -86,7 +88,7 @@ function makePredicateObjectMap(vre, mapping) {
         },
         "parentTriplesMap": makeMapName(vre, variable.targetCollection)
       },
-      "predicate": `http://timbuctoo.com/${property}`
+      "predicate": `${predicateNamespace}${property}`
     }
   } else if (variable.targetExistingTimbuctooVre) {
     return {
@@ -109,7 +111,7 @@ function makePredicateObjectMap(vre, mapping) {
       "objectMap": {
         "column": variable.variableName
       },
-      "predicate": `http://timbuctoo.com/${property}`
+      "predicate": `${predicateNamespace}${property}`
     }
   }
 }
