@@ -96,6 +96,44 @@ const mappings = {
         }
       ]
     },
+    Person_name_variants: {
+      archetypeName: "",
+      mappings: [
+        {
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "surname",
+          variable: [{ variableName: "family_name" }]
+        },
+        {
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "forename",
+          variable: [{ variableName: "given_name" }]
+        },
+        {
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "roleName",
+          variable: [ { variableName: "preposition" }]
+        },
+        {
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "nameLink",
+          variable: [ { variableName: "intraposition" }]
+        },
+        {
+          predicateNamespace: "http://www.tei-c.org/ns/1.0/",
+          property: "genName",
+          variable: [ { variableName: "postposition" }]
+        },
+        {
+          property: "isNameVariantOf",
+          variable: [{
+            variableName: "person_persistant_id",
+            targetCollection: "Persons",
+            targetVariableName: "persistent_id"
+          }]
+        },
+      ]
+    },
     Institutes: {
       archetypeName: "collectives",
       mappings: [
