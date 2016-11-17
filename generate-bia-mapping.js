@@ -147,7 +147,7 @@ const mappings = {
             variableName: "name"
           }]
         }, {
-          property: "locatedAt",
+          property: "hasLocation",
           variable: [{
             variableName: "place_persistant_id",
             targetCollection: "Places",
@@ -193,7 +193,7 @@ const mappings = {
           variable: [ { templateName: "Publications", variableName: "persistent_id" } ]
         },
         {
-          property: "documentType",
+          property: "typeKey",
           variable: [{ variableName: "type_key" }]
         },
         {
