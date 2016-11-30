@@ -462,7 +462,7 @@ const mappingDocument = {
   "@graph": [
     ...rml["@graph"],
     {
-      "@id": `http://timbuctoo.com/mapping/${vre}/Authorships`,
+      "@id": `http://timbuctoo.huygens.knaw.nl/mapping/${vre}/Authorships`,
       "rml:logicalSource": {
         "rml:source": {
           "tim:rawCollection": "Authorships",
@@ -470,19 +470,19 @@ const mappingDocument = {
         }
       },
       "subjectMap": {
-        "template": `http://timbuctoo.com/${vre}/sheetLocal/Publications/{publications_persistant_id}`
+        "template": `http://timbuctoo.huygens.knaw.nl/${vre}/sheetLocal/Publications/{publications_persistant_id}`
       },
       "predicateObjectMap": [
         {
           "objectMap": {
-            "template": `http://timbuctoo.com/${vre}/sheetLocal/Persons/{person_persistant_id}`
+            "template": `http://timbuctoo.huygens.knaw.nl/${vre}/sheetLocal/Persons/{person_persistant_id}`
           },
-          "predicate": "http://timbuctoo.com/isCreatedBy"
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isCreatedBy"
         }
       ]
     },
     {
-      "@id": `http://timbuctoo.com/mapping/${vre}/Place_name_variants`,
+      "@id": `http://timbuctoo.huygens.knaw.nl/mapping/${vre}/Place_name_variants`,
       "rml:logicalSource": {
         "rml:source": {
           "tim:rawCollection": "Place_name_variants",
@@ -490,7 +490,7 @@ const mappingDocument = {
         }
       },
       "subjectMap": {
-        "template": `http://timbuctoo.com/${vre}/sheetLocal/Places/{place_persistent_id}`
+        "template": `http://timbuctoo.huygens.knaw.nl/${vre}/sheetLocal/Places/{place_persistent_id}`
       },
       "predicateObjectMap": [
         {
@@ -502,7 +502,7 @@ const mappingDocument = {
       ]
     },
     {
-      "@id": `http://timbuctoo.com/mapping/${vre}/Institute_name_variants`,
+      "@id": `http://timbuctoo.huygens.knaw.nl/mapping/${vre}/Institute_name_variants`,
       "rml:logicalSource": {
         "rml:source": {
           "tim:rawCollection": "Institute_name_variants",
@@ -510,7 +510,7 @@ const mappingDocument = {
         }
       },
       "subjectMap": {
-        "template": `http://timbuctoo.com/${vre}/sheetLocal/Institutes/{institute_persistant_id}`
+        "template": `http://timbuctoo.huygens.knaw.nl/${vre}/sheetLocal/Institutes/{institute_persistant_id}`
       },
       "predicateObjectMap": [
         {

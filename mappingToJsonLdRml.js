@@ -22,7 +22,7 @@ export default function mappingToJsonLdRml(mapping, vre, archetypes) {
   	"@context": {
   		"@vocab": "http://www.w3.org/ns/r2rml#",
   		"rml": "http://semweb.mmlab.be/ns/rml#",
-  		"tim": "http://timbuctoo.com/mapping#",
+  		"tim": "http://timbuctoo.huygens.knaw.nl/mapping#",
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
         "@type": "@id"
       },
@@ -51,14 +51,14 @@ export default function mappingToJsonLdRml(mapping, vre, archetypes) {
 }
 
 function makeMapName(vre, localName) {
-  return `http://timbuctoo.com/mapping/${vre}/${localName}`;
+  return `http://timbuctoo.huygens.knaw.nl/mapping/${vre}/${localName}`;
 }
 
 function mapSheet(key, sheet, vre) {
   //FIXME: move logicalSource and subjectMap under the control of the server
   return {
     "@id": makeMapName(vre, key),
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": `http://timbuctoo.com/${sheet.archetypeName.replace(/s$/, "")}`,
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": `http://timbuctoo.huygens.knaw.nl/${sheet.archetypeName.replace(/s$/, "")}`,
     "rml:logicalSource": {
 			"rml:source": {
 				"tim:rawCollection": key,
@@ -77,7 +77,7 @@ function mapSheet(key, sheet, vre) {
 function makePredicateObjectMap(vre, mapping) {
   let property = mapping.property;
   let variable = mapping.variable[0];
-  let predicateNamespace = mapping.predicateNamespace || "http://timbuctoo.com/";
+  let predicateNamespace = mapping.predicateNamespace || "http://timbuctoo.huygens.knaw.nl/";
 
   if (variable.targetCollection) {
     return {
@@ -96,13 +96,13 @@ function makePredicateObjectMap(vre, mapping) {
         "column": variable.variableName,
         "termType": "http://www.w3.org/ns/r2rml#IRI"
       },
-      "predicate": `http://timbuctoo.com/${property}`,
-      "http://timbuctoo.com/mapping/existingTimbuctooVre": variable.targetExistingTimbuctooVre
+      "predicate": `http://timbuctoo.huygens.knaw.nl/${property}`,
+      "http://timbuctoo.huygens.knaw.nl/mapping/existingTimbuctooVre": variable.targetExistingTimbuctooVre
     }
   } else if (variable.templateName) {
     return {
       "objectMap": {
-        "template": `http://timbuctoo.com/${vre}/sheetLocal/${variable.templateName}/{${variable.variableName}}`
+        "template": `http://timbuctoo.huygens.knaw.nl/${vre}/sheetLocal/${variable.templateName}/{${variable.variableName}}`
       },
       "predicate": "http://www.w3.org/2002/07/owl#sameAs"
     }
