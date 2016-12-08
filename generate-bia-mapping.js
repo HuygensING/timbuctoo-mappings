@@ -550,9 +550,8 @@ if (process.env.HOST && process.env.AUTH_HEADER) {
   };
 
   const req = http.request(httpOpts, (response) => {
-    let str = '';
-    response.on('data', (chunk) => str += chunk);
-    response.on('end', () => console.log(str));
+    response.on('data', (chunk) => console.log("" + chunk));
+    response.on('end', () => console.log("---mapping finished---"));
   });
 
   req.write(jsonLd);
