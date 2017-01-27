@@ -8,6 +8,7 @@ on the october 6 version xlsx file (2016_10_06_BIA_Master_WERFILE.xlsx)
 
 Either of the following command will dump the generated RML mapping to the console:
 ```sh
+$ npm install
 $ npm test
 $ export VRE_ID={vre} && node run-bia-mapping.js
 ```
@@ -32,5 +33,6 @@ export HOST=localhost
 export PORT=8080
 export AUTH_HEADER=884c926f-5767-40ca-a96e-9978107fbaa2 # (replace with the correct header value)
 export VRE_ID=12345677890____________BIA_Master_WERFILE # (replace with the correct VRE_ID)
+npm install
 node run-bia-mapping.js
 ```
