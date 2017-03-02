@@ -245,7 +245,7 @@
         },
         {
           "objectMap": {
-            "column": "Overlijdensjaar",
+            "column": "Overlijdensdatum",
             "datatype": {
               "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
@@ -469,7 +469,7 @@
     },
     {
       "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_RAA/aliassen",
-      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/person",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
           "tim:rawCollection": "aliassen",
@@ -492,6 +492,15 @@
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/alias"
+        },
+        {
+          "objectMap": {
+            "column": "alias",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
         },
         {
           "objectMap": {
