@@ -1,0 +1,1229 @@
+{
+  "@context": {
+    "@vocab": "http://www.w3.org/ns/r2rml#",
+    "rml": "http://semweb.mmlab.be/ns/rml#",
+    "tim": "http://timbuctoo.huygens.knaw.nl/mapping#",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
+      "@type": "@id"
+    },
+    "predicate": {
+      "@type": "@id"
+    },
+    "termType": {
+      "@type": "@id"
+    },
+    "parentTriplesMap": {
+      "@type": "@id"
+    },
+    "class": {
+      "@type": "@id"
+    },
+    "object": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Authorships",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Authorships",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Authorships/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Authorships",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "publications_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Publications"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDocument"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasAuthor"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Data_lines",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "data",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/label"
+        },
+        {
+          "objectMap": {
+            "column": "data",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "type",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines_types"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDataLineType"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isDataLineOnPerson"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines_types",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Data_lines_type",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines_types/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Data_lines_types",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Fields_of_interest",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institute_name_variants",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Institute_name_variants",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institute_name_variants/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institute_name_variants",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/label"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isInstituteNameVariantOf"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institutes",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/collective",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Institutes",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institutes/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institutes",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/name"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Obituary",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Obituary",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Obituary/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Obituary",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "URL",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/label"
+        },
+        {
+          "objectMap": {
+            "column": "URL",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "PE-nummer",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isObituaryOf"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Person_name_variants",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Person_name_variants",
+          "tim:vreName": "DUMMY_BIA",
+          "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
+	    {
+	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "volledigenaam",
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "v.preposition + \" \" + v.given_name + \" \" + v.intraposition + \" \" + v.family_name + \" \" + v.postposition"
+	    }
+          ]
+  	}
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Person_name_variants/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Person_name_variants",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "family_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/label"
+        },
+        {
+          "objectMap": {
+            "column": "family_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "column": "given_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/forename"
+        },
+        {
+          "objectMap": {
+            "column": "family_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/surname"
+        },
+        {
+          "objectMap": {
+            "column": "intraposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/nameLink"
+        },
+        {
+          "objectMap": {
+            "column": "preposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/roleName"
+        },
+        {
+          "objectMap": {
+            "column": "postposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/genName"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isPersonNameVariantOf"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/person",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Persons",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "given_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/forename"
+        },
+        {
+          "objectMap": {
+            "column": "family_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/surname"
+        },
+        {
+          "objectMap": {
+            "column": "intraposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/nameLink"
+        },
+        {
+          "objectMap": {
+            "column": "preposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/roleName"
+        },
+        {
+          "objectMap": {
+            "column": "postposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/genName"
+        },
+        {
+          "objectMap": {
+            "column": "important",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/important"
+        },
+        {
+          "objectMap": {
+            "column": "gender",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/gender"
+        },
+        {
+          "objectMap": {
+            "column": "birth_date",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/birthDate"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "birth_place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasBirthPlace"
+        },
+        {
+          "objectMap": {
+            "column": "death_date",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/deathDate"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "death_place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDeathPlace"
+        },
+        {
+          "objectMap": {
+            "column": "religion",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/religion"
+        },
+        {
+          "objectMap": {
+            "column": "origin_db_1",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/origin_db_1"
+        },
+        {
+          "objectMap": {
+            "column": "origin_db_2",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/origin_db_2"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Place_name_variants",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Place_name_variants",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Place_name_variants/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Place_name_variants",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/name"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isPlaceNameVariantOf"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/location",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Places",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Place/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/name"
+        },
+        {
+          "objectMap": {
+            "column": "country",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Country"
+        },
+        {
+          "objectMap": {
+            "column": "latitude",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Latitude"
+        },
+        {
+          "objectMap": {
+            "column": "longitude",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Longitude"
+        },
+        {
+          "objectMap": {
+            "column": "remarks",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Remarks"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Portraits",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Portraits",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Portraits/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Portraits",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "URL",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/label"
+        },
+        {
+          "objectMap": {
+            "column": "URL",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "PE-nummer",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isPortraitOf"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Publications",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Publications",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Publications/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Publications",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "title",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/title"
+        },
+        {
+          "objectMap": {
+            "column": "type_key",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/documentType"
+        },
+        {
+          "objectMap": {
+            "column": "summary",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Summary"
+        },
+        {
+          "objectMap": {
+            "column": "year",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Year"
+        },
+        {
+          "objectMap": {
+            "column": "page_numbers",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/pageNumbers"
+        },
+        {
+          "objectMap": {
+            "column": "canonical_url",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/canonical_url"
+        },
+        {
+          "objectMap": {
+            "column": "reference",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/reference"
+        },
+        {
+          "objectMap": {
+            "column": "filename",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/filename"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Scientist_bios",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Scientist_bios",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Scientist_bios/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Scientist_bios",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isScientistBioOf"
+        },
+        {
+          "objectMap": {
+            "column": "clame_to_fame",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/label"
+        },
+        {
+          "objectMap": {
+            "column": "clame_to_fame",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "column": "biography",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/biography"
+        },
+        {
+          "objectMap": {
+            "column": "work_years",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/work_years"
+        },
+        {
+          "objectMap": {
+            "column": "highest_degree",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/highest_degree"
+        },
+        {
+          "objectMap": {
+            "column": "dissertation_title",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/dissertation_title"
+        },
+        {
+          "objectMap": {
+            "column": "sources",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/sources"
+        },
+        {
+          "objectMap": {
+            "column": "sources_reliability",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/sources_reliability"
+        },
+        {
+          "objectMap": {
+            "column": "remarks",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/remarks"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_1",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_1"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_2",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_2"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_3",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_3"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_4",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_4"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_5",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_5"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_6",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_6"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_7",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_7"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_8",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_8"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_9",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_9"
+        },
+        {
+          "objectMap": {
+            "column": "field_of_interest_10",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/field_of_interest_10"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_1",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_2",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_3",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_4",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_5",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_6",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_7",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_8",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_9",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_10",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States_type",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "States_type",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States_type/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States_type",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "States",
+          "tim:vreName": "DUMMY_BIA"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States/{tim_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "description",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/label"
+        },
+        {
+          "objectMap": {
+            "column": "description",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/begindatum"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/Einddatum"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isStateOfPerson"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isStateLinkedToInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isStateLinkedToLocation"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "type",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_BIA/States_type"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isTypeOfState"
+        }
+      ]
+    }
+  ]
+}
+
