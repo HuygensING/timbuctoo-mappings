@@ -469,53 +469,6 @@
       ]
     },
     {
-      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_RAA/aliassen",
-      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
-      "rml:logicalSource": {
-        "rml:source": {
-          "tim:rawCollection": "aliassen",
-          "tim:vreName": "DUMMY_RAA"
-        }
-      },
-      "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_RAA/aliassen/{tim_id}"
-      },
-      "predicateObjectMap": [
-        {
-          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_RAA/aliassen",
-          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
-        },
-        {
-          "objectMap": {
-            "column": "alias",
-            "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
-            }
-          },
-          "predicate": "http://timbuctoo.huygens.knaw.nl/alias"
-        },
-        {
-          "objectMap": {
-            "column": "alias",
-            "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
-            }
-          },
-          "predicate": "http://timbuctoo.huygens.knaw.nl/displayName"
-        },
-        {
-          "objectMap": {
-            "joinCondition": {
-              "parent": "IDRegent",
-              "child": "IDPerson"
-            },
-            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_RAA/aliassen"
-          },
-          "predicate": "http://timbuctoo.huygens.knaw.nl/isAliasOf"
-        }
-      ]
-    },
-    {
       "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_RAA/AcademischeTitel",
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
       "rml:logicalSource": {
