@@ -245,7 +245,7 @@
         },
         {
           "objectMap": {
-            "column": "Overlijdensdatum",
+            "column": "Overlijdensjaar",
 
             "datatype": {
               "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
