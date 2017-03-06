@@ -246,6 +246,7 @@
         {
           "objectMap": {
             "column": "Overlijdensdatum",
+
             "datatype": {
               "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
@@ -580,13 +581,11 @@
           "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
 	    {
 	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "Begindatum",
-	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "v.Beginjaar + \"-\" + v.Beginmaand + \"-\" + v.Begindag"
-	    }
-  	  ],
-          "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "v.Beginmaand != null && v.Begindag != null ? v.Beginjaar + \"-\" + v.Beginmaand + \"-\" + v.Begindag : v.Beginjaar"
+	    },
 	    {
 	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "Einddatum",
-	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "v.EindMaand != null && v.EindDag != null ? v.Eindjaar + \"-\" + v.Eindmaand + \"-\" + v.Einddag : v.Eindjaar"
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "v.Eindmaand != null && v.Einddag != null ? v.Eindjaar + \"-\" + v.Eindmaand + \"-\" + v.Einddag : v.Eindjaar"
 	    }
   	  ]
         }
