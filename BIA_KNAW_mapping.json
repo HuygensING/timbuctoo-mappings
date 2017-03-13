@@ -29,8 +29,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/person",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Persons",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Persons"
         }
       },
       "subjectMap": {
@@ -234,8 +233,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Residence",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Residence"
         }
       },
       "subjectMap": {
@@ -300,8 +298,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Education",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Education"
         }
       },
       "subjectMap": {
@@ -385,8 +382,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Membership",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Membership"
         }
       },
       "subjectMap": {
@@ -470,8 +466,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Scientist_biography",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Scientist_biography"
         }
       },
       "subjectMap": {
@@ -653,8 +648,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Provenance",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Provenance"
         }
       },
       "subjectMap": {
@@ -710,8 +704,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Provenance_type",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Provenance_type"
         }
       },
       "subjectMap": {
@@ -747,8 +740,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/location",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Places",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Places"
         }
       },
       "subjectMap": {
@@ -820,8 +812,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/collective",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Institutes",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Institutes"
         }
       },
       "subjectMap": {
@@ -867,8 +858,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Authorships",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Authorships"
         }
       },
       "subjectMap": {
@@ -915,8 +905,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Publication",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Publication"
         }
       },
       "subjectMap": {
@@ -988,8 +977,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Portraits",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Portraits"
         }
       },
       "subjectMap": {
@@ -1026,8 +1014,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Obituary",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Obituary"
         }
       },
       "subjectMap": {
@@ -1064,8 +1051,7 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Fields_of_interest",
-          "tim:vreName": "DUMMY_Past_members_of_KNAW"
+          "tim:rawCollection": "Fields_of_interest"
         }
       },
       "subjectMap": {
