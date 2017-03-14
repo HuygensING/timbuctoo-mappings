@@ -1,0 +1,1094 @@
+{
+  "@context": {
+    "@vocab": "http://www.w3.org/ns/r2rml#",
+    "rml": "http://semweb.mmlab.be/ns/rml#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "tim": "http://timbuctoo.huygens.knaw.nl/mapping#",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
+      "@type": "@id"
+    },
+    "predicate": {
+      "@type": "@id"
+    },
+    "termType": {
+      "@type": "@id"
+    },
+    "parentTriplesMap": {
+      "@type": "@id"
+    },
+    "class": {
+      "@type": "@id"
+    },
+    "object": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/person",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Persons"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+	  "objectMap": {
+	    "column": "VIAF_id",
+	    "termType": "http://www.w3.org/ns/r2rml#IRI"
+	  },
+	  "predicate": "http://www.w3.org/2002/07/owl#sameAs"
+	},
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "given_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/forename"
+        },
+        {
+          "objectMap": {
+            "column": "family_name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/surname"
+        },
+        {
+          "objectMap": {
+            "column": "intraposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/nameLink"
+        },
+        {
+          "objectMap": {
+            "column": "preposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/roleName"
+        },
+        {
+          "objectMap": {
+            "column": "postposition",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://www.tei-c.org/ns/1.0/genName"
+        },
+        {
+          "objectMap": {
+            "column": "gender",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/gender"
+        },
+        {
+          "objectMap": {
+            "column": "birth_date",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/birthDate"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "birth_place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasBirthPlace"
+        },
+        {
+          "objectMap": {
+            "column": "death_date",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/deathDate"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "death_place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDeathPlace"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Occupation",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+	  "tim:rawCollection": "Occupation",
+	  "tim:vreName": "DUMMY_Boerhaave_Museum_-_instrument_makers"
+	}
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Occupations/{persistent_id}"    	
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Occupation",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+	    "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isOccupationOf"
+        },
+        {
+          "objectMap": { 
+            "column": "description",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/description"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/connectedToInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/locatedIn"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Residence",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Residence"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Residence/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Residence",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+	{
+          "objectMap": {
+            "column": "persistent_id",
+	    "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasResident"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Education",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Education"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Education/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Education",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": { 
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isEducationOf"
+        },
+        {
+          "objectMap": { 
+            "column": "description",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/description"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Membership",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Membership"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Membership/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Membership",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": { 
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasMember"
+        },
+        {
+          "objectMap": { 
+            "column": "description",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/description"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Scientist_biography",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Scientist_biography"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Scientist_biography/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Scientist_biography",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isScientistBioOf"
+        },
+        {
+          "objectMap": {
+            "column": "claim_to_fame",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/clame_to_fame"
+        },
+        {
+          "objectMap": {
+            "column": "biography",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/biography"
+        },
+        {
+          "objectMap": {
+            "column": "work_years",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/work_years"
+        },
+        {
+          "objectMap": {
+            "column": "highest_degree",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/highest_degree"
+        },
+        {
+          "objectMap": {
+            "column": "dissertation_title",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/dissertation_title"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_1",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_2",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_3",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_4",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_5",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_6",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_7",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_8",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_9",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_10",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Provenance"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isProvenanceAboutPerson"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "type",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance_type"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasProvenanceType"
+        },
+        {
+          "objectMap": {
+            "column": "data",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/title"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance_type",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Provenance_type"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance_type/{ID}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Provenance_type",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/location",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Places"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Place/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/name"
+        },
+        {
+          "objectMap": {
+            "column": "country",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/country"
+        },
+        {
+          "objectMap": {
+            "column": "latitude",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/latitude"
+        },
+        {
+          "objectMap": {
+            "column": "longitude",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/longitude"
+        },
+        {
+          "objectMap": {
+            "column": "remarks",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/remarks"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Institutes",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/collective",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Institutes"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Institutes/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Institutes",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/name"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Authorships",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Authorships"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Authorships/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Authorships",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "publications_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Publications"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDocument"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasAuthor"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Publications",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Publication"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Publications/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Publications",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "title",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/title"
+        },
+        {
+          "objectMap": {
+            "column": "year",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/year"
+        },
+        {
+          "objectMap": {
+            "column": "page_numbers",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/page_numbers"
+        },
+        {
+          "objectMap": {
+            "column": "reference",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/reference"
+        },
+        {
+          "objectMap": {
+            "column": "filename",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/file_name"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Portraits",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Portraits"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Portraits/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Portraits",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isPortraitOf"
+        },
+        {
+          "objectMap": {
+            "column": "Portrait_URL",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/url"
+        }        
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Obituary",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Obituary"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Obituary/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Obituary",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "URL",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/url"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "PE-nummer",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isObituaryOf"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Fields_of_interest"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest/{ID}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Boerhaave_Museum_-_instrument_makers/Fields_of_interest",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "ID",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    }
+  ]
+}
+
