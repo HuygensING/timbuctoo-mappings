@@ -33,7 +33,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Persons/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Persons/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -153,7 +153,7 @@
 	}
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Occupations/{tim_id}"    	
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Occupations/{persistent_id}"    	
       },
       "predicateObjectMap": [
         {
@@ -237,7 +237,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Residence/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Residence/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -302,7 +302,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Education/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Education/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -386,7 +386,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Membership/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Membership/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -470,7 +470,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Scientist_biography/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Scientist_biography/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -652,7 +652,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Provenance/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Provenance/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -708,7 +708,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Provenance_type/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Provenance_type/{ID}"
       },
       "predicateObjectMap": [
         {
@@ -744,7 +744,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Place/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Place/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -816,7 +816,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Institutes/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Institutes/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -862,7 +862,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Authorships/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Authorships/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -909,7 +909,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Publications/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Publications/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -981,7 +981,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Portraits/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Portraits/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -1018,7 +1018,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Obituary/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Obituary/{persistent_id}"
       },
       "predicateObjectMap": [
         {
@@ -1055,7 +1055,7 @@
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Fields_of_interest/{tim_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Fields_of_interest/{ID}"
       },
       "predicateObjectMap": [
         {
