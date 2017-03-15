@@ -816,6 +816,28 @@
       ]
     },
     {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Place_name_variants",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Place_name_variants"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Place/{place_persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+            }
+          },
+          "predicate": "skos:altLabel"
+        }
+      ]
+    },
+    {
       "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Institutes",
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/collective",
       "rml:logicalSource": {
