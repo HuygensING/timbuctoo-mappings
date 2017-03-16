@@ -114,7 +114,7 @@
           "objectMap": {
             "column": "birth_date",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/birthDate"
@@ -133,7 +133,7 @@
           "objectMap": {
             "column": "death_date",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/deathDate"
@@ -219,7 +219,7 @@
           "objectMap": {
             "column": "datable_from",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
@@ -228,7 +228,7 @@
           "objectMap": {
             "column": "datable_to",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
@@ -306,7 +306,7 @@
           "objectMap": {
             "column": "datable_from",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
@@ -315,7 +315,7 @@
           "objectMap": {
             "column": "datable_to",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
@@ -390,7 +390,7 @@
           "objectMap": {
             "column": "datable_from",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
@@ -399,7 +399,7 @@
           "objectMap": {
             "column": "datable_to",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
@@ -474,7 +474,7 @@
           "objectMap": {
             "column": "datable_from",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
@@ -483,7 +483,7 @@
           "objectMap": {
             "column": "datable_to",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
@@ -989,7 +989,7 @@
           "objectMap": {
             "column": "year",
             "datatype": {
-              "@id": "http://timbuctoo.huygens.knaw.nl/types/datable"
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/year"
