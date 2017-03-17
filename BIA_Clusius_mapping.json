@@ -2,6 +2,7 @@
   "@context": {
     "@vocab": "http://www.w3.org/ns/r2rml#",
     "rml": "http://semweb.mmlab.be/ns/rml#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "tim": "http://timbuctoo.huygens.knaw.nl/mapping#",
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
@@ -51,7 +52,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -60,7 +61,7 @@
           "objectMap": {
             "column": "given_name",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://www.tei-c.org/ns/1.0/forename"
@@ -69,7 +70,7 @@
           "objectMap": {
             "column": "family_name",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://www.tei-c.org/ns/1.0/surname"
@@ -78,7 +79,7 @@
           "objectMap": {
             "column": "intraposition",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://www.tei-c.org/ns/1.0/nameLink"
@@ -87,7 +88,7 @@
           "objectMap": {
             "column": "preposition",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://www.tei-c.org/ns/1.0/roleName"
@@ -96,7 +97,7 @@
           "objectMap": {
             "column": "postposition",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://www.tei-c.org/ns/1.0/genName"
@@ -105,7 +106,7 @@
           "objectMap": {
             "column": "gender",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/gender"
@@ -171,7 +172,7 @@
           "objectMap": {
             "column": "persistent_id",
 	    "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -190,7 +191,7 @@
           "objectMap": { 
             "column": "description",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/description"
@@ -255,7 +256,7 @@
           "objectMap": {
             "column": "persistent_id",
 	    "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -320,7 +321,7 @@
           "objectMap": { 
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -339,7 +340,7 @@
           "objectMap": { 
             "column": "description",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/description"
@@ -404,7 +405,7 @@
           "objectMap": { 
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -423,7 +424,7 @@
           "objectMap": { 
             "column": "description",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/description"
@@ -490,7 +491,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -509,7 +510,7 @@
           "objectMap": {
             "column": "claim_to_fame",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/clame_to_fame"
@@ -518,7 +519,7 @@
           "objectMap": {
             "column": "biography",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/biography"
@@ -527,7 +528,7 @@
           "objectMap": {
             "column": "work_years",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/work_years"
@@ -536,7 +537,7 @@
           "objectMap": {
             "column": "highest_degree",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/highest_degree"
@@ -545,7 +546,7 @@
           "objectMap": {
             "column": "dissertation_title",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/dissertation_title"
@@ -672,7 +673,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -701,7 +702,7 @@
           "objectMap": {
             "column": "data",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/title"
@@ -728,7 +729,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -737,7 +738,7 @@
           "objectMap": {
             "column": "label",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/value"
@@ -764,7 +765,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -773,7 +774,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/name"
@@ -782,7 +783,7 @@
           "objectMap": {
             "column": "country",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/country"
@@ -791,7 +792,7 @@
           "objectMap": {
             "column": "latitude",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/latitude"
@@ -800,7 +801,7 @@
           "objectMap": {
             "column": "longitude",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/longitude"
@@ -809,7 +810,7 @@
           "objectMap": {
             "column": "remarks",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/remarks"
@@ -831,7 +832,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "skos:altLabel"
@@ -858,7 +859,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -867,7 +868,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/name"
@@ -899,7 +900,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "skos:altLabel"
@@ -926,7 +927,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -973,7 +974,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -982,7 +983,7 @@
           "objectMap": {
             "column": "title",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/title"
@@ -1000,7 +1001,7 @@
           "objectMap": {
             "column": "page_numbers",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/page_numbers"
@@ -1009,7 +1010,7 @@
           "objectMap": {
             "column": "reference",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/reference"
@@ -1018,7 +1019,7 @@
           "objectMap": {
             "column": "filename",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/file_name"
@@ -1045,7 +1046,7 @@
           "objectMap": {
             "column": "ID",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -1054,7 +1055,7 @@
           "objectMap": {
             "column": "label",
             "datatype": {
-              "@id": "https://www.w3.org/TR/2001/REC-xmlschema-2-20010502/#string"
+              "@id": "rdf:langString"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/value"
