@@ -30,7 +30,13 @@
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/person",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Persons"
+          "tim:rawCollection": "Persons",
+	  "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
+	    {
+	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "combinedNameValue",
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\\\"\" + (v.given_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\\\"\" + (v.family_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\\\"\" + (v.intraposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\\\"\" + (v.preposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\\\"\" + (v.postposition ?: \"\") + \"\\\"}]}\""
+	    }
+	  ]
         }
       },
       "subjectMap": {
@@ -58,50 +64,14 @@
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
         },
         {
-          "objectMap": {
-            "column": "given_name",
-            "datatype": {
-              "@id": "rdf:langString"
+	  "objectMap": {
+            "column": "combinedNameValue",
+	    "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/person-name"
             }
           },
-          "predicate": "http://www.tei-c.org/ns/1.0/forename"
-        },
-        {
-          "objectMap": {
-            "column": "family_name",
-            "datatype": {
-              "@id": "rdf:langString"
-            }
-          },
-          "predicate": "http://www.tei-c.org/ns/1.0/surname"
-        },
-        {
-          "objectMap": {
-            "column": "intraposition",
-            "datatype": {
-              "@id": "rdf:langString"
-            }
-          },
-          "predicate": "http://www.tei-c.org/ns/1.0/nameLink"
-        },
-        {
-          "objectMap": {
-            "column": "preposition",
-            "datatype": {
-              "@id": "rdf:langString"
-            }
-          },
-          "predicate": "http://www.tei-c.org/ns/1.0/roleName"
-        },
-        {
-          "objectMap": {
-            "column": "postposition",
-            "datatype": {
-              "@id": "rdf:langString"
-            }
-          },
-          "predicate": "http://www.tei-c.org/ns/1.0/genName"
-        },
+	  "predicate": "http://timbuctoo.huygens.knaw.nl/names"
+	},
         {
           "objectMap": {
             "column": "gender",
@@ -149,6 +119,34 @@
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/hasDeathPlace"
         }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Persons_names_variant",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Persons_name_variants",
+	  "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
+	    {
+	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "combinedNameValue",
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\\\"\" + (v.given_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\\\"\" + (v.family_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\\\"\" + (v.intraposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\\\"\" + (v.preposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\\\"\" + (v.postposition ?: \"\") + \"\\\"}]}\""
+	    }
+	  ]
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Persons/{person_persistant_id}"
+      },
+      "predicateObjectMap": [
+        {
+	  "objectMap": {
+            "column": "combinedNameValue",
+	    "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/person-name"
+            }
+          },
+	  "predicate": "http://timbuctoo.huygens.knaw.nl/names"
+	}
       ]
     },
     {
@@ -453,6 +451,7 @@
           "objectMap": {
             "column": "datable_from",
             "datatype": {
+
 
 
               "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
