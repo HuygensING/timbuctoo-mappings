@@ -34,7 +34,7 @@
 	  "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
 	    {
 	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "combinedNameValue",
-	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\\\"\" + (v.given_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\\\"\" + (v.family_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\\\"\" + (v.intraposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\\\"\" + (v.preposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\\\"\" + (v.postposition ?: \"\") + \"\\\"}]}\""
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[\" + (v.given_name != null ? \"{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\" + Json:stringify(v.given_name) + \"},\" : \"\") + \"{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\" + Json:stringify(v.family_name) + \"}\" + (v.intraposition != null ? \",{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\" + Json:stringify(v.intraposition) + \"}\" : \"\") + (v.preposition != null ? \",{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\" + Json:stringify(v.preposition) + \"}\" : \"\") + (v.postposition != null ? \",{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\" + Json:stringify(v.postposition) + \"}\" : \"\") + \"]}\""
 	    }
 	  ]
         }
@@ -129,7 +129,7 @@
 	  "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
 	    {
 	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "combinedNameValue",
-	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\\\"\" + (v.given_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\\\"\" + (v.family_name ?: \"\") + \"\\\"},{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\\\"\" + (v.intraposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\\\"\" + (v.preposition ?: \"\") + \"\\\"},{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\\\"\" + (v.postposition ?: \"\") + \"\\\"}]}\""
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[\" + (v.given_name != null ? \"{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\" + Json:stringify(v.given_name) + \"},\" : \"\") + \"{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\" + Json:stringify(v.family_name) + \"}\" + (v.intraposition != null ? \",{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\" + Json:stringify(v.intraposition) + \"}\" : \"\") + (v.preposition != null ? \",{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\" + Json:stringify(v.preposition) + \"}\" : \"\") + (v.postposition != null ? \",{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\" + Json:stringify(v.postposition) + \"}\" : \"\") + \"]}\""
 	    }
 	  ]
         }
