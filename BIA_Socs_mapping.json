@@ -1,0 +1,1066 @@
+{
+  "@context": {
+    "@vocab": "http://www.w3.org/ns/r2rml#",
+    "rml": "http://semweb.mmlab.be/ns/rml#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "tim": "http://timbuctoo.huygens.knaw.nl/mapping#",
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
+      "@type": "@id"
+    },
+    "predicate": {
+      "@type": "@id"
+    },
+    "termType": {
+      "@type": "@id"
+    },
+    "parentTriplesMap": {
+      "@type": "@id"
+    },
+    "class": {
+      "@type": "@id"
+    },
+    "object": {
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/person",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Persons",
+	  "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
+	    {
+	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "combinedNameValue",
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[\" + (v.given_name != null ? \"{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\" + Json:stringify(v.given_name) + \"},\" : \"\") + \"{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\" + Json:stringify(v.family_name) + \"}\" + (v.intraposition != null ? \",{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\" + Json:stringify(v.intraposition) + \"}\" : \"\") + (v.preposition != null ? \",{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\" + Json:stringify(v.preposition) + \"}\" : \"\") + (v.postposition != null ? \",{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\" + Json:stringify(v.postposition) + \"}\" : \"\") + \"]}\""
+	    }
+	  ]
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+	  "objectMap": {
+	    "column": "VIAF_id",
+	    "termType": "http://www.w3.org/ns/r2rml#IRI"
+	  },
+	  "predicate": "http://www.w3.org/2002/07/owl#sameAs"
+	},
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+	  "objectMap": {
+            "column": "combinedNameValue",
+	    "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/person-name"
+            }
+          },
+	  "predicate": "http://timbuctoo.huygens.knaw.nl/names"
+	},
+        {
+          "objectMap": {
+            "column": "gender",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/gender"
+        },
+        {
+          "objectMap": {
+            "column": "birth_date",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/birthDate"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "birth_place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasBirthPlace"
+        },
+        {
+          "objectMap": {
+            "column": "death_date",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/deathDate"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "death_place_persistent_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDeathPlace"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons_names_variant",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Persons_name_variants",
+	  "http://timbuctoo.huygens.knaw.nl/mapping#customField": [
+	    {
+	      "http://timbuctoo.huygens.knaw.nl/mapping#name": "combinedNameValue",
+	      "http://timbuctoo.huygens.knaw.nl/mapping#expression": "\"{\\\"components\\\":[\" + (v.given_name != null ? \"{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\" + Json:stringify(v.given_name) + \"},\" : \"\") + \"{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\" + Json:stringify(v.family_name) + \"}\" + (v.intraposition != null ? \",{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\" + Json:stringify(v.intraposition) + \"}\" : \"\") + (v.preposition != null ? \",{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\" + Json:stringify(v.preposition) + \"}\" : \"\") + (v.postposition != null ? \",{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\" + Json:stringify(v.postposition) + \"}\" : \"\") + \"]}\""
+	    }
+	  ]
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons/{person_persistant_id}"
+      },
+      "predicateObjectMap": [
+        {
+	  "objectMap": {
+            "column": "combinedNameValue",
+	    "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/person-name"
+            }
+          },
+	  "predicate": "http://timbuctoo.huygens.knaw.nl/names"
+	}
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Occupation",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+	  "tim:rawCollection": "Occupation",
+	  "tim:vreName": "DUMMY_Members_of_Dutch_scientific_societies"
+	}
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Occupations/{persistent_id}"    	
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Occupation",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+	    "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isOccupationOf"
+        },
+        {
+          "objectMap": { 
+            "column": "description",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/description"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/connectedToInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/locatedIn"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Residence",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Residence"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Residence/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Residence",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+	{
+          "objectMap": {
+            "column": "persistent_id",
+	    "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasResident"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Education",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Education"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Education/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Education",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": { 
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isEducationOf"
+        },
+        {
+          "objectMap": { 
+            "column": "description",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/description"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistent_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Membership",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Membership"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Membership/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Membership",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": { 
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasMember"
+        },
+        {
+          "objectMap": { 
+            "column": "description",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/description"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "institute_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasInstitute"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"              
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        },
+        {
+          "objectMap": {
+            "column": "datable_from",
+            "datatype": {
+
+
+
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/beginDate"
+        },
+        {
+          "objectMap": {
+            "column": "datable_to",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/endDate"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Scientist_biography",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Scientist_biography"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Scientist_biography/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Scientist_biography",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isScientistBioOf"
+        },
+        {
+          "objectMap": {
+            "column": "claim_to_fame",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/clame_to_fame"
+        },
+        {
+          "objectMap": {
+            "column": "biography",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/biography"
+        },
+        {
+          "objectMap": {
+            "column": "work_years",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/work_years"
+        },
+        {
+          "objectMap": {
+            "column": "highest_degree",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/highest_degree"
+        },
+        {
+          "objectMap": {
+            "column": "dissertation_title",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/dissertation_title"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_1",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_2",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_3",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_4",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_5",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_6",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_7",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_8",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_9",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "field_of_interest_id_10",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasFieldOfInterest"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Provenance"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/isProvenanceAboutPerson"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "type",
+              "parent": "ID"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance_type"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasProvenanceType"
+        },
+        {
+          "objectMap": {
+            "column": "data",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/title"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance_type",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Provenance_type"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance_type/{ID}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Provenance_type",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/location",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Places"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Place/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/name"
+        },
+        {
+          "objectMap": {
+            "column": "country",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/country"
+        },
+        {
+          "objectMap": {
+            "column": "latitude",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/latitude"
+        },
+        {
+          "objectMap": {
+            "column": "longitude",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/longitude"
+        },
+        {
+          "objectMap": {
+            "column": "remarks",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/remarks"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Place_name_variants",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Place_name_variants"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Place/{place_persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "skos:altLabel"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/collective",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Institutes"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/name"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "place_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Places"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasLocation"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institute_name_variants",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Institute_name_variants"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Institutes/{institute_persistant_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "objectMap": {
+            "column": "name",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "skos:altLabel"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Authorships",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Authorships"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Authorships/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Authorships",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "publications_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Publications"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasDocument"
+        },
+        {
+          "objectMap": {
+            "joinCondition": {
+              "child": "person_persistant_id",
+              "parent": "persistent_id"
+            },
+            "parentTriplesMap": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Persons"
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/hasAuthor"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Publications",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/document",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Publication"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Publications/{persistent_id}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Publications",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "persistent_id",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "title",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/title"
+        },
+        {
+          "objectMap": {
+            "column": "year",
+            "datatype": {
+              "@id": "http://timbuctoo.huygens.knaw.nl/datatypes/datable"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/year"
+        },
+        {
+          "objectMap": {
+            "column": "page_numbers",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/page_numbers"
+        },
+        {
+          "objectMap": {
+            "column": "reference",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/reference"
+        },
+        {
+          "objectMap": {
+            "column": "filename",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/file_name"
+        }
+      ]
+    },
+    {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest",
+      "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/keyword",
+      "rml:logicalSource": {
+        "rml:source": {
+          "tim:rawCollection": "Fields_of_interest"
+        }
+      },
+      "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest/{ID}"
+      },
+      "predicateObjectMap": [
+        {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Members_of_Dutch_scientific_societies/Fields_of_interest",
+          "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
+        },
+        {
+          "objectMap": {
+            "column": "ID",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
+        },
+        {
+          "objectMap": {
+            "column": "label",
+            "datatype": {
+              "@id": "rdf:langString"
+            }
+          },
+          "predicate": "http://timbuctoo.huygens.knaw.nl/value"
+        }
+      ]
+    }
+  ]
+}
+
