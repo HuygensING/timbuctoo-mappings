@@ -4,6 +4,7 @@
     "rml": "http://semweb.mmlab.be/ns/rml#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "skos": "http://www.w3.org/2004/02/skos/core#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
     "tim": "http://timbuctoo.huygens.knaw.nl/mapping#",
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": {
       "@type": "@id"
@@ -58,7 +59,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -76,7 +77,7 @@
           "objectMap": {
             "column": "gender",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/gender"
@@ -170,7 +171,7 @@
           "objectMap": {
             "column": "persistent_id",
 	    "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -189,7 +190,7 @@
           "objectMap": { 
             "column": "description",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/description"
@@ -254,7 +255,7 @@
           "objectMap": {
             "column": "persistent_id",
 	    "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -319,7 +320,7 @@
           "objectMap": { 
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -338,7 +339,7 @@
           "objectMap": { 
             "column": "description",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/description"
@@ -403,7 +404,7 @@
           "objectMap": { 
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -422,7 +423,7 @@
           "objectMap": { 
             "column": "description",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/description"
@@ -487,7 +488,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -506,7 +507,7 @@
           "objectMap": {
             "column": "claim_to_fame",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/clame_to_fame"
@@ -515,7 +516,7 @@
           "objectMap": {
             "column": "biography",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/biography"
@@ -524,7 +525,7 @@
           "objectMap": {
             "column": "work_years",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/work_years"
@@ -533,7 +534,7 @@
           "objectMap": {
             "column": "highest_degree",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/highest_degree"
@@ -542,7 +543,7 @@
           "objectMap": {
             "column": "dissertation_title",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/dissertation_title"
@@ -669,7 +670,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -698,7 +699,7 @@
           "objectMap": {
             "column": "data",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/title"
@@ -725,7 +726,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -734,7 +735,7 @@
           "objectMap": {
             "column": "label",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/value"
@@ -761,7 +762,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -770,7 +771,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/name"
@@ -779,7 +780,7 @@
           "objectMap": {
             "column": "country",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/country"
@@ -788,7 +789,7 @@
           "objectMap": {
             "column": "latitude",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/latitude"
@@ -797,7 +798,7 @@
           "objectMap": {
             "column": "longitude",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/longitude"
@@ -806,7 +807,7 @@
           "objectMap": {
             "column": "remarks",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/remarks"
@@ -828,7 +829,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "skos:altLabel"
@@ -855,7 +856,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -864,7 +865,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/name"
@@ -896,7 +897,7 @@
           "objectMap": {
             "column": "name",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "skos:altLabel"
@@ -923,7 +924,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -970,7 +971,7 @@
           "objectMap": {
             "column": "persistent_id",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -979,7 +980,7 @@
           "objectMap": {
             "column": "title",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/title"
@@ -997,7 +998,7 @@
           "objectMap": {
             "column": "page_numbers",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/page_numbers"
@@ -1006,7 +1007,7 @@
           "objectMap": {
             "column": "reference",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/reference"
@@ -1015,7 +1016,7 @@
           "objectMap": {
             "column": "filename",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/file_name"
@@ -1052,7 +1053,7 @@
           "objectMap": {
             "column": "Portrait_URL",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/url"
@@ -1079,7 +1080,7 @@
           "objectMap": {
             "column": "URL",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/url"
@@ -1116,7 +1117,7 @@
           "objectMap": {
             "column": "ID",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/original_id"
@@ -1125,7 +1126,7 @@
           "objectMap": {
             "column": "label",
             "datatype": {
-              "@id": "rdf:langString"
+              "@id": "xsd:string"
             }
           },
           "predicate": "http://timbuctoo.huygens.knaw.nl/value"
