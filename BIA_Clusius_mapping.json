@@ -471,6 +471,7 @@
       ]
     },
     {
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Biography",
       "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Scientist_biography",
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
@@ -479,10 +480,12 @@
         }
       },
       "subjectMap": {
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Biography/{persistent_id}"
         "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Scientist_biography/{persistent_id}"
       },
       "predicateObjectMap": [
         {
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Biography",
           "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Carolus_Clusius_and_his_entourage/Scientist_biography",
           "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
         },

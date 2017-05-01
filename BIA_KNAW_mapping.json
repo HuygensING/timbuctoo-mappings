@@ -490,19 +490,19 @@
       ]
     },
     {
-      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Scientist_biography",
+      "@id": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Biography",
       "http://www.w3.org/2000/01/rdf-schema#subClassOf": "http://timbuctoo.huygens.knaw.nl/concept",
       "rml:logicalSource": {
         "rml:source": {
-          "tim:rawCollection": "Scientist_biography"
+          "tim:rawCollection": "Biography"
         }
       },
       "subjectMap": {
-        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Scientist_biography/{persistent_id}"
+        "template": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Biography/{persistent_id}"
       },
       "predicateObjectMap": [
         {
-          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Scientist_biography",
+          "object": "http://timbuctoo.huygens.knaw.nl/mapping/DUMMY_Past_members_of_KNAW/Biography",
           "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type"
         },
         {
