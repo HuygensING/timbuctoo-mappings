@@ -107,7 +107,7 @@ local personNamePredicate = "http://timbuctoo.huygens.knaw.nl/static/v5/predicat
 
 // TYPES
 local personName = "http://timbuctoo.huygens.knaw.nl/static/v5/datatype/person-name";
-local datable = "https://www.loc.gov/standards/datetime/pre-submission.html";
+local edtf = "https://www.loc.gov/standards/datetime/pre-submission.html";
 local string = "http://www.w3.org/2001/XMLSchema#string";
 local boolean = "http://www.w3.org/2001/XMLSchema#boolean";
 local decimal = "http://www.w3.org/2001/XMLSchema#decimal";
@@ -139,7 +139,7 @@ local anyURI = "http://www.w3.org/2001/XMLSchema#anyURI";
 
   types:: {
     personName: personName,
-    datable: datable,
+    edtf: edtf,
     string: string,
     boolean: boolean,
     decimal: decimal,
