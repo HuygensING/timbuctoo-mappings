@@ -1,0 +1,18 @@
+== The problem
+We write mapping files by hand for now. These files are RDF files that follow the RML.io spec and that we write as JSON-LD.
+
+ - These mapping files get big because rml in json-ld is quite verbose.
+ - These mapping files refer often to a prefix that changes each time you re-upload the file. Or a predicate that we need to keep consistent accross mapping files.
+ - These mapping files might contain errors that you only notice because a property is missing or empty in the final result. This is hard and time-consuming to check.
+
+== Expected result
+
+We have an automated script that we feed a less verbose mapping file with less duplication. The script then validates that mapping file (ideally also against the uploaded file) and generates the actual json ld file.
+
+== The approach
+
+- We have achieved good results by using http://jsonnet.org[jsonnet] to generate kubernetes json files. The suffer from a lot of the same problems (verbosity and variables that are used all over the place). 
+  So to start we'll write a jsonnet file that allows you to write a mapping file in a more succinct manner. This will also make sure that the json-ld is valid (jsonnet functions impose a more strict api then json)
+- We can then add a js script that uses the graphql api to validate that all columns that are referred to actually exist
+- We can then add a feature that reports back all properties used in a sorted list to quickly lift out typo's.
+- we can then also replace all known prefixes so custom predicates stand out more.
