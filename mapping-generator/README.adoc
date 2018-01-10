@@ -56,8 +56,8 @@ You then call the `mappings` function with an array of `mapping`s
 
 ```
 rml.mappings([
-  mapping(...),
-  mapping(...)
+  rml.mapping(...),
+  rml.mapping(...)
 ])
 ```
 
@@ -68,8 +68,34 @@ Each mapping call get's
  - a `source` (explained later on) for generating the subject uri
  - a `source` for generating the class uri
  - a hashmap of predicate uri's and the Fields to generate the properties.
- 
-This mapping will then create the config that generates an object whose uri is the subject uri, whose type is the class uri and whose properties are the properties of the generated fields.
+
+```
+  rml.mapping("name_of_the_mapping", "filename", 9,
+    rml.templateSource("http://example.org/things/{ID}"),
+    rml.constantSource("http://example.org/types/thing),
+    {
+      "http://schema.org/name": rml.dataField(rml.types.string, rml.columnSource("label")),
+    }
+  ),
+```
+
+This mapping will then create the config that generates an object whose uri is `http://example.org/things/{ID}`, whose type is `http://example.org/types/thing` and that has a schema:name with the value of the column "label"
+
+If you want to generate the same predicate multiple times (e.g. a thing has multiple schema:name's) then you can specify an array of fields:
+
+```
+  rml.mapping("name_of_the_mapping", "filename", 9,
+    rml.templateSource("http://example.org/things/{ID}"),
+    rml.constantSource("http://example.org/types/thing),
+    {
+      "http://schema.org/name": [
+        rml.dataField(rml.types.string, rml.columnSource("label")),
+        rml.dataField(rml.types.string, rml.columnSource("alternate_label")),
+      ],
+    }
+  ),
+```
+
 
 === sources
 

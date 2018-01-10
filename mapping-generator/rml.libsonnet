@@ -21,6 +21,23 @@ local field(termType, dataType, source) = {
   },
 };
 
+local objectMapOrReference(predicate, omap) = {
+  "rr:objectMap": if "tim:expression" in omap
+                  then {
+                    "rr:column": omap["tim:name"],
+                  } + {
+                    [key]: omap[key] for key in std.objectFields(omap) if key != "tim:expression" && key != "tim:name"
+                  }
+                  else omap,
+  "rr:predicate": { "@id": predicate }
+};
+
+local expressionOrNull(map) = 
+  if "tim:expression" in map then
+    {"tim:expression": map["tim:expression"], "tim:name": map["tim:name"]}
+  else
+    null;
+
 local mapping(name, filename, index, subjectMapSource, classSource, objectMaps) = {
   "@id": mappingName(name),
   "rml:logicalSource": {
@@ -28,27 +45,27 @@ local mapping(name, filename, index, subjectMapSource, classSource, objectMaps) 
       "tim:rawCollectionUri": {
         "@id": datasetUri + "rawData/" + filename + "/collections/"  + index
       },
-      "tim:customField": [local map = objectMaps[key]["rr:objectMap"]; {"tim:expression": map["tim:expression"], "tim:name": map["tim:name"]} for key in std.objectFields(objectMaps) if "tim:expression" in objectMaps[key]["rr:objectMap"]]
+      "tim:customField": std.prune(std.flattenArrays([
+        if std.type(objectMaps[key]) == 'array' then
+          [expressionOrNull(item["rr:objectMap"]) for item in objectMaps[key]]
+        else
+          [expressionOrNull(objectMaps[key]["rr:objectMap"])]
+        for key in std.objectFields(objectMaps)
+      ]))
     }
   },
   "rr:subjectMap": {
     "rr:template": "http://example.org/datasets/u33707283d426f900d4d33707283d426f900d4d0d/bia/collection/Persons/{persistent_id}",
   },
   "rr:predicateObjectMap": 
-    [
-      local omap = objectMaps[key]["rr:objectMap"]; 
-      objectMaps[key] + { 
-        "rr:objectMap": if "tim:expression" in omap
-                        then {
-                          "rr:column": omap["tim:name"],
-                        } + {
-                          [key]: omap[key] for key in std.objectFields(omap) if key != "tim:expression" && key != "tim:name"
-                        }
-                        else omap,
-        "rr:predicate": { "@id": key }
-      }
-      for key in std.objectFields(objectMaps) if "tim:expression" in objectMaps[key]["rr:objectMap"]] + 
-    [field("rr:IRI", null, classSource) + {"rr:predicate": { "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }}]
+    [field("rr:IRI", null, classSource) + {"rr:predicate": { "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }}] +
+    std.flattenArrays([
+      if std.type(objectMaps[key]) == 'array' then
+        [objectMapOrReference(key, item["rr:objectMap"]) for item in objectMaps[key]]
+      else
+        [objectMapOrReference(key, objectMaps[key]["rr:objectMap"])]
+      for key in std.objectFields(objectMaps)
+    ])
 };
 
 // SOURCES
@@ -89,7 +106,6 @@ local iriField(source) = field("rr:IRI", null, source);
 local dataField(dataType, source) = field("rr:Literal", dataType, source);
 
 local joinField(local_column, remote_table, remote_column) = {
-  // "rr:predicate": { "@id": predicate },
   "rr:objectMap": {
     "rr:parentTriplesMap": {
       "@id": mappingName(remote_table)
