@@ -11,8 +11,143 @@ We have an automated script that we feed a less verbose mapping file with less d
 
 == The approach
 
-- We have achieved good results by using http://jsonnet.org[jsonnet] to generate kubernetes json files. The suffer from a lot of the same problems (verbosity and variables that are used all over the place). 
+- We have achieved good results by using http://jsonnet.org[jsonnet] to generate kubernetes json files. Kubernetes json files suffer from a lot of the same problems (verbosity and variables that are used all over the place).
   So to start we'll write a jsonnet file that allows you to write a mapping file in a more succinct manner. This will also make sure that the json-ld is valid (jsonnet functions impose a more strict api then json)
 - We can then add a js script that uses the graphql api to validate that all columns that are referred to actually exist
 - We can then add a feature that reports back all properties used in a sorted list to quickly lift out typo's.
 - we can then also replace all known prefixes so custom predicates stand out more.
+
+
+== jsonnet API
+
+The following sections explain how to write an RML mapping using the jsonnet functions. For more info in jsonnet syntax check out: http://jsonnet.org/docs/tutorial.html[the jsonnet tutorial]. While writing a mapping you can validate it using `./validate.sh http://<path-to-timbuctoo> <name-of-dataset>` and finally execute it using `./apply.sh http://<path-to-timbuctoo> <name-of-dataset>`. These commands require docker to be installed on your system.
+
+=== A note on the examples
+In the examples below I will use a very simple uploaded file that contains two collections. Persons and places.
+
+Places looks like this:
+
+[options="header"]
+|=======
+| id | name      | country
+| 1  | Amsterdam | The Netherlands
+| 2  | Paris     | France
+|=======
+
+Persons looks like this:
+
+[options="header"]
+|=======
+| id | firstName | lastname | birthplace
+| 1  | Jean      | Martin   | 2
+| 2  | Jan       | Jansen   | 1
+|=======
+
+The number in birthplace refers to the id of the row in place. So Jean Martin was born in Paris.
+
+=== mappings
+You start by importing the file rml.libsonnet
+
+```jsonnet
+local rml = import "./rml.libsonnet";
+```
+
+You then call the `mappings` function with an array of `mapping`s
+
+```
+rml.mappings([
+  mapping(...),
+  mapping(...)
+])
+```
+
+Each mapping call get's 
+ - the name of the mapping (used for joins) 
+ - the name of the file that you are reading the data from. This file name changes each upload so I suggest acquiring it through `std.extVar` (see example below)
+ - the number of the collection that it refers to
+ - a `source` (explained later on) for generating the subject uri
+ - a `source` for generating the class uri
+ - a hashmap of predicate uri's and the Fields to generate the properties.
+ 
+This mapping will then create the config that generates an object whose uri is the subject uri, whose type is the class uri and whose properties are the properties of the generated fields.
+
+=== sources
+
+In the mapping you can define how to extract data from the uploaded file using sources. A source can be one of four types:
+
+templateSource::
+allows you to specify a string that contains column names in in curly braces like `templateSource("Dear {firstName} {lastname},")`
+columnSource::
+that contains the name of a column: `columnSource("country")`
+constantSource::
+that contains the string to use in the rdf: `constantSource("male")`
+jexlSource::
+contains http://commons.apache.org/proper/commons-jexl/reference/syntax.html[jexl] code that has a variable called `v` that contains the columns. E.g. `jexlSource('v.firstName != null ? "Dear " + v.firstName : "Mr. " + v.lastname + ","')`
+
+=== fields
+A source is needed for generating the subject and the class value, but all properties require not just a value but also a description of what the value is. Therefore each source is wrapped in a field. The following fields are available:
+
+iriField::
+the source should result in some IRI e.g. `rml.iriField(rml.constantSource("http://example.org/foo"))`
+dataField::
+the source results in some string according the the datatype that is provided as the first argument. e.g. `rml.dataField(rml.types.edtf, rml.constantSource("2018-01-??"))`
+joinField::
+see joins below
+
+=== joins
+To link two entities together, you simple generate an iri that is the same as the subject IRI of the other table. So given our example above we could have the following mapping
+
+```
+local rml = import "./rml.libsonnet";
+
+rml.mappings([
+    rml.mapping("PersonsMapping", "{{filename}}", 1,
+      rml.templateSource(rml.datasetUri + "collection/Persons/{id}"),
+      rml.constantSource(rml.datasetUri + "collection/Persons"),
+      {
+        "http://schema.org/givenName": rml.columnSource("firstName"),
+        "http://schema.org/familyName": rml.columnSource("lastname"),
+        "http://schema.org/birthPlace": rml.iriField(rml.templateSource(rml.datasetUri + "collection/Places/{birthplace}")),
+      },
+    ),
+    rml.mapping("PlacesMapping", "{{filename}}", 2,
+      rml.templateSource(rml.datasetUri + "collection/Places/{id}"),
+      rml.constantSource(rml.datasetUri + "collection/Places"),
+      {
+        "http://schema.org/name": rml.columnSource("name")
+      },
+    )
+  ])
+```
+
+But this only works if the IRI that we generate for the place happens to contain only the identifiers that we also have at our disposal in the persons collection!
+
+What if we want to generate IRIs for the places that contain the placename? (assuming this results in unique IRI's per row) `rml.templateSource(rml.datasetUri + "collection/Places/{country}/{name}");`
+
+For this usecase the mapping allows you to refer to the subject IRI's as generated by a different mapping using the joinField. The complete mapping would then be:
+```
+local rml = import "./rml.libsonnet";
+
+rml.mappings([
+    rml.mapping("PersonsMapping", "{{filename}}", 1,
+      rml.templateSource(rml.datasetUri + "collection/Persons/{id}"),
+      rml.constantSource(rml.datasetUri + "collection/Persons"),
+      {
+        "http://schema.org/givenName": rml.columnSource("firstName"),
+        "http://schema.org/familyName": rml.columnSource("lastname"),
+        "http://schema.org/birthPlace": rml.joinField(
+          "birthplace", //the column in this collection that contains the value to match on (must be 1 column)
+          "PlacesMapping", //the name of the mapping whose subject IRI's we're going to use
+          "id" //the name of the column in the collection that's behind 'PlacesMapping' whose value we should match against
+        ),
+      },
+    ),
+    rml.mapping("PlacesMapping", "{{filename}}", 2,
+      rml.templateSource(rml.datasetUri + "collection/Places/{country}/{name}"),
+      rml.constantSource(rml.datasetUri + "collection/Places"),
+      {
+        "http://schema.org/name": rml.columnSource("name")
+      },
+    )
+  ])
+```
