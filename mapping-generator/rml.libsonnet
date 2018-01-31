@@ -54,9 +54,7 @@ local mapping(name, filename, index, subjectMapSource, classSource, objectMaps) 
       ]))
     }
   },
-  "rr:subjectMap": {
-    "rr:template": "http://example.org/datasets/u33707283d426f900d4d33707283d426f900d4d0d/bia/collection/Persons/{persistent_id}",
-  },
+  "rr:subjectMap": subjectMapSource,
   "rr:predicateObjectMap": 
     [field("rr:IRI", null, classSource) + {"rr:predicate": { "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type" }}] +
     std.flattenArrays([
@@ -71,7 +69,7 @@ local mapping(name, filename, index, subjectMapSource, classSource, objectMaps) 
 // SOURCES
 
 local templateSource(template) = {
-  "rr:template": if std.split(template, "{").length > 1 && std.split(template, "}").length > 1 then template else error "template should contain { and }",
+  "rr:template": if std.length(std.split(template, "{")) > 1 && std.length(std.split(template, "}")) > 1 then template else error "template should contain { and }",
 };
 
 local constantSource(literal) = {
