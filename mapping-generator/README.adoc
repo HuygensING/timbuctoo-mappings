@@ -61,7 +61,8 @@ rml.mappings([
 ])
 ```
 
-Each mapping call get's 
+Each mapping call gets 
+
  - the name of the mapping (used for joins) 
  - the name of the file that you are reading the data from. This file name changes each upload so I suggest acquiring it through `std.extVar` (see example below)
  - the number of the collection that it refers to
