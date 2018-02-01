@@ -1,0 +1,119 @@
+doorvaarten
+- id_doorvaart
+- dag
+- maand
+- jaar
+- volgnummer
+- schipper_voornamen
+- schipper_patroniem
+- schipper_tussenvoegsel
+- schipper_achternaam
+- schipper_plaatsnaam
+- soort_korting
+- korting_muntsoort1
+- korting_bedrag1
+- korting_muntsoort2
+- korting_bedrag2
+- korting_muntsoort3
+- korting_bedrag3
+- subtotaal1_muntsoort1
+- subtotaal1_bedrag1
+- subtotaal1_muntsoort2
+- subtotaal1_bedrag2
+- subtotaal1_muntsoort3
+- subtotaal1_bedrag3
+- subtotaal2_muntsoort1
+- subtotaal2_bedrag1
+- subtotaal2_muntsoort2
+- subtotaal2_bedrag2
+- subtotaal2_muntsoort3
+- subtotaal2_bedrag3
+- totaal_muntsoort1
+- totaal_bedrag1
+- totaal_muntsoort2
+- totaal_bedrag2
+- totaal_muntsoort3
+- totaal_bedrag3
+- totaal_muntsoort4
+- totaal_bedrag4
+- totaal_muntsoort5
+- totaal_bedrag5
+- privilege
+- opmerking_bron
+- opmerking_invoerder
+- naam_invoerder
+- datum_opgevoerd
+- dirnummer
+- tonnage
+- belasting_korting
+- hulp
+- hulp1
+- hulp2
+
+
+belastingen
+- id_doorvaart
+- regel
+- naam
+- muntsoort1
+- bedrag1
+- muntsoort2
+- bedrag2
+- muntsoort3
+- bedrag3
+- korting
+- hulp
+
+
+ladingen
+- id_doorvaart
+- regel
+- van
+- naar
+- maat
+- aantal
+- soort
+- muntsoort1
+- bedrag1
+- muntsoort2
+- bedrag2
+- muntsoort3
+- bedrag3
+- maat_alt
+- aantal_alt
+- hulp
+
+places_source
+- vnr
+- place
+- soundcoding_(is_Kode_in_places_standard)
+- opm
+- HP
+- secundair
+
+images
+- id_doorvaart
+- bestandsnaam
+- volgnummer
+- hulp
+- opmerkingen
+
+
+places_standard
+- Kode
+- Stednavn
+- region
+- big_category_code
+- big_category
+- small_category_code
+- small_category
+- west_of_Helsingør
+- decLatitude
+- decLongitude
+- Modern_Country
+- Modern_name
+- Province
+- Remark
+- Zoom
+
+
