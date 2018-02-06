@@ -1,0 +1,169 @@
+emmigrantunits
+- orig_volgorde
+- persoonsId
+- initialen
+- tussenvoegsel
+- achternaam
+- geboortejaar
+- hasBirthPlace
+- hasResidenceLocation
+- hasSchema
+- hasUnit
+- samenstelling
+- geslacht
+- hasReligion
+- adresAantal
+- eventsAantal
+- is_duplicaat
+- duplicaten_bevatten_afwijkende_gegevens
+- Heeft_geen_correct_id
+
+emcards
+- orig_volgorde
+- kaartnummer
+- isStoredAt
+- jaartal_begin
+- jaartal_eind
+- referencesPerson
+- referencesCollective
+- is_duplicaat
+- waardes_tussen_de_duplicaten_komen_overeen
+
+emtravels
+- orig_volgorde
+- type_reis
+- start
+- eind
+- hasVervoermiddel
+- hastravelSchema
+- migrant
+
+emwaardeoordeels
+- orig_volgorde
+- waardeoordeelemigrant
+- PersoonsID
+- oordeel
+
+emimages
+- orig_volgorde
+- Image
+- kaartnummer
+
+emevents
+- Image
+- migrant
+- Prs_achternaam
+- actorperson_relation_emmigrantunits
+- actorperson_relation_emactors
+- actorinstitution
+- receptorperson_relation_emmigrantunits
+- receptorperson_relation_emactors
+- receptorinstitution
+- recording_consulate
+- subject
+- day
+- month
+- year
+- remark
+
+emactors
+- nr
+- achternaam
+- voorletters
+- tussenvoegsel
+- opschrift
+- Naam_persoon
+- instelling_relation_emactorinstellingen
+- functie
+- jaar
+- plaatsing
+- bijzonderheden
+- instelling_relation_emactorinstitutions
+
+
+emactorinstitutions
+- nr
+- naam
+- functie
+- jaar
+- plaatsing
+- bijzonderheden
+
+lookup_instellingen
+- naam
+- nr
+
+emeventtypes
+- naam
+
+emcardcatalogs
+- naam
+
+emconsulates
+- naam
+
+emvervoermiddels
+- orig_volgorde
+- vervoer
+- type_vervoer
+
+emtypevervoers
+- type_vervoer
+
+emschemas
+- naam
+
+emlocations
+- naam
+
+emreligions
+- Godsdienst
+
+orig
+- Image_nr._begin
+- Kaartnummer_(_(prs_uuid)
+- PersoonsID
+- prs_achternaam
+- prs_tussenvoegsel
+- prs_initialen
+- Geboortejaar
+- Geboorteplaats
+- Woonplaats_NL
+- Type_vervoer
+- Naam_vervoer
+- Schema_(Cat)
+- Jaar_aankomst
+- Kaartenbak
+- Model
+- Info_op_kaart
+- jaartal_begin_info
+- jaartal_eind_info
+- Unit
+- Samenstelling
+- Geslacht
+- Datum_inreis
+- jaar_re-entry
+- jaar_repatriering
+- Datum_na/terugreis
+- Godsdienst
+- Adres
+- Life_course_NL
+- events_(aantal_data)
+- Life_course_AUS
+- Opvangnetwerk_(Correspondentie)
+- Opmerkingen
+- Genoemd_kantoor_op_kaart
+- waardeoordeelemigrant_door_consulaat
+- Aanwezig
+- Digitaal
+- Omvang_informatie
+- Opmerking_bij_zoeken_in_AUS
+- Item_barcode
+- [lege_kolom]_
+- orig_volgorde
+- repatriering_van_rij
+- type_reis
+- start
+- eind
+
+
