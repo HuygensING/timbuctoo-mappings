@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "did-you-mean": "^0.0.1",
+    "didyoumean": "^1.2.1",
+    "draftlog": "^1.0.12",
+    "form-data": "^2.3.1",
+    "inquirer": "^5.0.1",
+    "inquirer-path": "^1.0.0-beta5",
+    "jsonld": "^0.5.18",
+    "node-fetch": "^1.7.3",
+    "opn": "^5.2.0"
+  }
+}

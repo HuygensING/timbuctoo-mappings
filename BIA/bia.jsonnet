@@ -1,11 +1,10 @@
 local rml = import "../mapping-generator/rml.libsonnet";
 
-local biaFile = "d37a348c-8da7-4287-9408-c97f12d4dfcf-file";
 local personNamesJexl = "\"{\\\"components\\\":[\" + (v.given_name != null ? \"{\\\"type\\\":\\\"FORENAME\\\",\\\"value\\\":\" + Json:stringify(v.given_name) + \"},\" : \"\") + \"{\\\"type\\\":\\\"SURNAME\\\",\\\"value\\\":\" + Json:stringify(v.family_name) + \"}\" + (v.intraposition != null ? \",{\\\"type\\\":\\\"NAME_LINK\\\", \\\"value\\\":\" + Json:stringify(v.intraposition) + \"}\" : \"\") + (v.preposition != null ? \",{\\\"type\\\":\\\"ROLE_NAME\\\", \\\"value\\\":\" + Json:stringify(v.preposition) + \"}\" : \"\") + (v.postposition != null ? \",{\\\"type\\\":\\\"GEN_NAME\\\", \\\"value\\\":\" + Json:stringify(v.postposition) + \"}\" : \"\") + \"]}\"";
 
 
 rml.mappings([
-  rml.mapping("bia_persons", biaFile, 1,
+  rml.mapping("bia_persons", 1,
     rml.templateSource(rml.datasetUri + "collection/Persons/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Persons"),
     {
@@ -22,7 +21,7 @@ rml.mappings([
       "http://www.w3.org/2002/07/owl#sameAs": rml.iriField(rml.jexlSource("v['VIAF_url'] == null || empty(v['VIAF_url']) ? \"http://timbuctoo.huygens.knaw.nl/fake_viaf/2017_06_19_BIA_Clusius/\" + v['tim_id'] : v['VIAF_url']"))
     }
   ),
-  rml.mapping("bia_personNameVariants", biaFile, 2,
+  rml.mapping("bia_personNameVariants", 2,
     rml.templateSource(rml.datasetUri + "collection/Persons/{person_persistant_id}"),
     rml.constantSource(rml.datasetUri + "collection/Persons"),
     {
@@ -32,7 +31,7 @@ rml.mappings([
       )
     }
   ),
-  rml.mapping("bia_occupation", biaFile, 3,
+  rml.mapping("bia_occupation", 3,
     rml.templateSource(rml.datasetUri + "collection/Occupation/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Occupation"),
     {
@@ -44,7 +43,7 @@ rml.mappings([
       "http://schema.org/endDate": rml.dataField(rml.types.edtf, rml.columnSource("datable_to")),
     }
   ),
-   rml.mapping("bia_residence", biaFile, 4,
+   rml.mapping("bia_residence", 4,
     rml.templateSource(rml.datasetUri + "collection/Residence/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Residence"),
     {
@@ -55,7 +54,7 @@ rml.mappings([
       "http://schema.org/endDate": rml.dataField(rml.types.edtf, rml.columnSource("datable_to")),
     }
   ),
-  rml.mapping("bia_education", biaFile, 5,
+  rml.mapping("bia_education", 5,
     rml.templateSource(rml.datasetUri + "collection/Education/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Education"),
     {
@@ -67,7 +66,7 @@ rml.mappings([
       "http://schema.org/endDate": rml.dataField(rml.types.edtf, rml.columnSource("datable_to")),
     }
   ),
-  rml.mapping("bia_biography", biaFile, 6,
+  rml.mapping("bia_biography", 6,
     rml.templateSource(rml.datasetUri + "collection/Biography/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Biography"),
     {
@@ -80,7 +79,7 @@ rml.mappings([
       ]
     }
   ),
-  rml.mapping("bia_membership", biaFile, 7,
+  rml.mapping("bia_membership", 7,
     rml.templateSource(rml.datasetUri + "collection/Membership/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Membership"),
     {
@@ -92,7 +91,7 @@ rml.mappings([
       "http://schema.org/endDate": rml.dataField(rml.types.edtf, rml.columnSource("datable_to")),
     }
   ),
-  rml.mapping("bia_provenance", biaFile, 8,
+  rml.mapping("bia_provenance", 8,
     rml.templateSource(rml.datasetUri + "collection/Provenance/{persistent_id}"),
     rml.constantSource(rml.datasetUri + "collection/Provenance"),
     {
@@ -101,14 +100,14 @@ rml.mappings([
       [rml.customPredicate("hasProvenanceType")]: rml.joinField("type", "bia_provenancetype", "ID"),
     }
   ),
-  rml.mapping("bia_provenanceType", biaFile, 9,
+  rml.mapping("bia_provenanceType", 9,
     rml.templateSource(rml.datasetUri + "collection/ProvenanceType/{ID}"),
     rml.constantSource(rml.datasetUri + "collection/ProvenanceType"),
     {
       "http://schema.org/label": rml.dataField(rml.types.string, rml.columnSource("label")),
     }
   ),
-  rml.mapping("bia_fieldOfInterest", biaFile, 9,
+  rml.mapping("bia_fieldOfInterest", 9,
     rml.templateSource(rml.datasetUri + "collection/FieldOfInterest/{ID}"),
     rml.constantSource(rml.datasetUri + "collection/FieldOfInterest"),
     {
