@@ -63,19 +63,23 @@ function graphqlDataSet(userInfo, datasetId, query) {
 async function executeAndPoll(userInfo, datasetId, promise) {
   var draft = console.draft("\n".repeat(14))
   const updatePoll = setInterval(function () {
-    graphqlDataSet(userInfo, datasetId, `
-      metadata {
+    graphql(`{
+      dataSetMetadata(dataSetId: "${datasetId}") {
         currentImportStatus {
           messages 
         }
       }
-    `)
+    }
+    `, userInfo.authorization)
     .then(data => {
-      const msgs = data.metadata.currentImportStatus.messages;
+      if (data.dataSetMetadata != null) {
+        const msgs = data.dataSetMetadata.currentImportStatus.messages;
       if (msgs.length < 15) {
         msgs.length = 15;
       }
-      draft(data.metadata.currentImportStatus.messages.slice(-15).join("\n"))//.slice(prev.length)
+        const width = process.stdout.columns;
+        draft(msgs.slice(-15).map(x => x.length < width ? x + " ".repeat(width - x.length) : x.substr(0, width)).join("\n"))//.slice(prev.length)
+      }
     })
     .catch(function (arguments) { console.log(arguments) });
   }, 500);
@@ -221,25 +225,20 @@ function loop(objectOrArray, cb) {
   }
 }
 
-async function checkColumns(jsonLdDoc, rawCollections) {
-  let result = true;
-  const jsonld = require("jsonld");
-  const dym = require("didyoumean")
-  const framed = await jsonld.frame(jsonLdDoc, {
-    "@context": {
-      "rml": "http://semweb.mmlab.be/ns/rml#",
-      "rr": "http://www.w3.org/ns/r2rml#",
-      "tim": "http://timbuctoo.huygens.knaw.nl/mapping#"
-    },
-    "@graph": {
-      "rml:logicalSource": {
-        
-      },
-      "rr:predicateObjectMap": {
-        
-      }
+async function loopAsync(objectOrArray, cb) {
+  if (Array.isArray(objectOrArray)) {
+    for (let i = 0; i < objectOrArray.length; i++) {
+      await cb(objectOrArray[i], i, objectOrArray);
     }
-  });
+  } else {
+    await cb(objectOrArray, 0, [objectOrArray]);
+  }
+}
+
+
+function checkColumns(jsonLdDoc, rawCollections) {
+  let result = true;
+  const dym = require("didyoumean")
 
   function checkColumn(collectionUri, columnName, customColumns) {
     if (!rawCollections[collectionUri][columnName] && !customColumns[columnName]) {
@@ -298,7 +297,7 @@ async function checkColumns(jsonLdDoc, rawCollections) {
   //   "http://jan/{foo}/{bar}?really=\\{as}",
   //   "http://jan/{foo}/{bar}?really=\\\\{as}",
   // ].forEach(str => getTemplates(str, match => console.log(str, match)))
-  loop(framed["@graph"], mapping => {
+  loop(jsonLdDoc["@graph"], mapping => {
     const customColumns = {};
     if (mapping["rml:logicalSource"]["rml:source"]["tim:customField"]) {
       loop(mapping["rml:logicalSource"]["rml:source"]["tim:customField"], customField => customColumns[customField["tim:name"]] = true);
@@ -427,25 +426,6 @@ async function execute() {
     ])).action;
     if (action === "run a mapping file") {
       let prevPickedCsv = undefined;
-      if (state.csvFile) {
-        for (let key in uploadedFilePickList) {
-          if (uploadedFilePickList[key] === state.csvFile) {
-            prevPickedCsv = key;
-            break;
-          }
-        }
-      }
-    
-      state.csvFile = (await inquirer.prompt([
-        {
-          name: "csvFile",
-          message: "What csv file should we use?",
-          type: "list",
-          choices: uploadedFiles.map(x => x.label),
-          default: prevPickedCsv,
-          filter: choice => uploadedFilePickList[choice]
-        },
-      ])).csvFile
     
       state.mappingInput = await inquirer.prompt([
         {
@@ -463,7 +443,7 @@ async function execute() {
         console.log("Jsonnet not found on this system");
       }
       
-      const generatedFile = JSON.parse((await exec(jsonnetLocation, "--ext-str", `dataseturi=${dataSetUri}`, "--ext-str", `fileuri=${state.csvFile}`, state.mappingInput.mappingFile)).stdout.join("\n"));
+      const generatedFile = JSON.parse((await exec(jsonnetLocation, "--ext-str", `dataseturi=${dataSetUri}`, state.mappingInput.mappingFile)).stdout.join("\n"));
       
       const rawCollections = {};
       for (var file of uploadedFiles) {
@@ -475,7 +455,63 @@ async function execute() {
         rawCollections[collection.uri] = columns;
       }
     
-      if (await checkColumns(generatedFile, rawCollections)) {
+      const jsonld = require("jsonld");
+      const framedFile = await jsonld.frame(generatedFile, {
+        "@context": {
+          "rml": "http://semweb.mmlab.be/ns/rml#",
+          "rr": "http://www.w3.org/ns/r2rml#",
+          "tim": "http://timbuctoo.huygens.knaw.nl/mapping#"
+        },
+        "@graph": {
+          "rml:logicalSource": {
+            
+          },
+          "rr:predicateObjectMap": {
+            
+          }
+        }
+      });
+
+      const pickedCsvFiles = {};
+      if (!state.csvFiles) {
+        state.csvFiles = {};
+      }
+      await loopAsync(framedFile["@graph"], async function (mapping) {
+        // console.log(mapping, !!mapping["rml:logicalSource"], !!mapping["rml:logicalSource"]["rml:source"], !!mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"])
+        console.log(mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]);
+        if (mapping["rml:logicalSource"] && mapping["rml:logicalSource"]["rml:source"] && mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]) {
+          if ("tim:csvFileId" in mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]) {
+            const csvFileId = mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]["tim:csvFileId"];
+            let uri;
+            if (pickedCsvFiles[csvFileId]) {
+              uri = pickedCsvFiles[csvFileId]
+            } else {
+              const prevUri = state.csvFiles[csvFileId];
+              const labelOfPrevUri = (uploadedFiles.find(x => x.uri === prevUri) || {label: undefined}).label
+      
+              const answer = await inquirer.prompt([
+                {
+                  name: "csvFile",
+                  message: "What csv file should we use for " + csvFileId + "?",
+                  type: "list",
+                  choices: uploadedFiles.map(x => x.label),
+                  default: labelOfPrevUri,
+                  filter: choice => uploadedFilePickList[choice]
+                },
+              ])
+              uri = answer.csvFile;
+            }
+            state.csvFiles[csvFileId] = uri;
+            pickedCsvFiles[csvFileId] = uri;
+            const sourceUri = mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"];
+            sourceUri["@id"] = uri + "collections/" + sourceUri["tim:index"]
+            delete sourceUri["tim:csvFileId"];
+            delete sourceUri["tim:index"];
+          }
+        }
+      });
+
+      if (checkColumns(framedFile, rawCollections)) {
         console.log("Executing mapping file...")
         
         const [userPart, dataSetPart] = state.input.dataSetId.split("__");

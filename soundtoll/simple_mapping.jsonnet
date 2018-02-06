@@ -62,7 +62,7 @@ rml.mappings([
     rml.mapping(
 	"BelastingenMapping",
 	"belastingen.csv",
-	2,
+	1,
 	rml.templateSource(rml.datasetUri + "collection/soundtoll/{persistant_id}"),
         rml.constantSource(rml.datasetUri + "collection/soundtoll"),
 	{
@@ -81,7 +81,7 @@ rml.mappings([
     rml.mapping(
 	"LadingenMapping",
 	"ladingen.csv",
-	3,
+	1,
 	rml.templateSource(rml.datasetUri + "collection/soundtoll/{persistant_id}"),
         rml.constantSource(rml.datasetUri + "collection/soundtoll"),
 	{
@@ -105,7 +105,7 @@ rml.mappings([
     rml.mapping(
 	"PlacesSourceMapping",
 	"places_source.csv",
-	4,
+	1,
 	rml.templateSource(rml.datasetUri + "collection/soundtoll/{persistant_id}"),
         rml.constantSource(rml.datasetUri + "collection/soundtoll"),
 	{
@@ -119,7 +119,7 @@ rml.mappings([
     rml.mapping(
 	"ImagesMapping",
 	"images.csv",
-	5,
+	1,
 	rml.templateSource(rml.datasetUri + "collection/soundtoll/{persistant_id}"),
         rml.constantSource(rml.datasetUri + "collection/soundtoll"),
 	{
@@ -132,7 +132,7 @@ rml.mappings([
     rml.mapping(
 	"PlacesStandardMapping",
 	"places_standard.csv",
-	6,
+	1,
 	rml.templateSource(rml.datasetUri + "collection/soundtoll/{persistant_id}"),
         rml.constantSource(rml.datasetUri + "collection/soundtoll"),
 	{

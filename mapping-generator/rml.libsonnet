@@ -1,5 +1,4 @@
 local datasetUri = std.extVar("dataseturi");
-local fileuri = std.extVar("fileuri");
 
 local mappings(mappings) = {
   "@context": {
@@ -39,12 +38,13 @@ local expressionOrNull(map) =
   else
     null;
 
-local mapping(name, index, subjectMapSource, classSource, objectMaps) = {
+local mapping(name, csvFileId, index, subjectMapSource, classSource, objectMaps) = {
   "@id": mappingName(name),
   "rml:logicalSource": {
     "rml:source": {
       "tim:rawCollectionUri": {
-        "@id": fileuri + "collections/"  + index
+        "tim:csvFileId": csvFileId,
+        "tim:index": index
       },
       "tim:customField": std.prune(std.flattenArrays([
         if std.type(objectMaps[key]) == 'array' then
