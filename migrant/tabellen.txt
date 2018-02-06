@@ -53,11 +53,11 @@ emevents
 - Image
 - migrant
 - Prs_achternaam
-- actorperson
-- actorperson
+- actorperson_relation_emmigrantunits
+- actorperson_relation_emactors
 - actorinstitution
-- receptorperson
-- receptorperson
+- receptorperson_relation_emmigrantunits
+- receptorperson_relation_emactors
 - receptorinstitution
 - recording_consulate
 - subject
@@ -73,12 +73,13 @@ emactors
 - tussenvoegsel
 - opschrift
 - Naam_persoon
-- instelling
+- instelling_relation_emactorinstellingen
 - functie
 - jaar
 - plaatsing
 - bijzonderheden
-- instelling
+- instelling_relation_emactorinstitutions
+
 
 emactorinstitutions
 - nr
@@ -119,7 +120,6 @@ emreligions
 - Godsdienst
 
 orig
-- orig_volgorde
 - Image_nr._begin
 - Kaartnummer_(_(prs_uuid)
 - PersoonsID
