@@ -23,7 +23,7 @@ if (!state.input) {
 if (!state.mappingInput) {
   state.mappingInput = {};
 }
-const timbuctoo_url = process.env.timbuctooUrl || "http://localhost:8080"
+const timbuctoo_url = process.env.timbuctooUrl || "https://repository.huygens.knaw.nl"
 
 //launch a server for capturing the login info
 
@@ -82,7 +82,7 @@ async function executeAndPoll(userInfo, datasetId, promise) {
       }
     })
     .catch(function (arguments) { console.log(arguments) });
-  }, 500);
+  }, 1000);
   try {
     return await promise;
   } finally {
@@ -477,8 +477,6 @@ async function execute() {
         state.csvFiles = {};
       }
       await loopAsync(framedFile["@graph"], async function (mapping) {
-        // console.log(mapping, !!mapping["rml:logicalSource"], !!mapping["rml:logicalSource"]["rml:source"], !!mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"])
-        console.log(mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]);
         if (mapping["rml:logicalSource"] && mapping["rml:logicalSource"]["rml:source"] && mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]) {
           if ("tim:csvFileId" in mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]) {
             const csvFileId = mapping["rml:logicalSource"]["rml:source"]["tim:rawCollectionUri"]["tim:csvFileId"];
