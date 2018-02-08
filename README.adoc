@@ -1,0 +1,20 @@
+== Timbuctoo mappings
+
+This repository contains RML mappings to convert tabular data into rdf.
+A mapping defines which properties to convert, what predicates they should map to, and how to turn foreign keys into URI's.
+
+The mappings are usually written using http://jsonnet.org/docs/tutorial.html[jsonnet]. Please read the link:./mapping-generator[mapping generator guide] to learn more.
+This repo also contains a node.js script that wraps the timbuctoo API calls and makes it easy to upload data and apply the mappings.
+
+To execute the script, you need 
+
+ - a node.js that's at least 8.4.0
+ - the `jsonnet` executable somewhere on your $PATH
+
+You can launch the script using 
+
+```
+timbuctooUrl=http://data.anansi.clariah.nl node ./execute.js
+```
+
+You should of course replace the timbuctoo url with whatever you're using.

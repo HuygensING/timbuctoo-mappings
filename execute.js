@@ -25,8 +25,6 @@ if (!state.mappingInput) {
 }
 const timbuctoo_url = process.env.timbuctooUrl || "https://repository.huygens.knaw.nl"
 
-//launch a server for capturing the login info
-
 function graphql(query, authId) {
   return fetch(timbuctoo_url + "/v5/graphql", {
     method: "POST",
@@ -384,6 +382,19 @@ async function getCsvFiles(userInfo, datasetId) {
 }
 
 async function execute() {
+  console.log("Using timbuctoo server at", timbuctoo_url);
+  try {
+    const result = await graphql('{aboutMe{id}}', undefined);
+    if (!"aboutMe" in result) {
+      throw new Error("result is not what I expected");
+    }
+  } catch (e) {
+    console.log(e);
+    console.log(`Could not communicate to the timbuctoo server. Please verify whether ${timbuctoo_url}/v5/graphql?query=${encodeURIComponent("{aboutMe{id}}")}&accept=application/json works in your browser.`)
+    process.exit(1);
+  }
+
+
   let userId = null;
   if (state.userInfo && state.userInfo.authorization) {
     userId = getUserInfo(state.userInfo.authorization); //already logged in

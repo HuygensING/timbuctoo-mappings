@@ -17,11 +17,6 @@ We have an automated script that we feed a less verbose mapping file with less d
 - We can then add a feature that reports back all properties used in a sorted list to quickly lift out typo's.
 - we can then also replace all known prefixes so custom predicates stand out more.
 
-
-== jsonnet API
-
-The following sections explain how to write an RML mapping using the jsonnet functions. For more info in jsonnet syntax check out: http://jsonnet.org/docs/tutorial.html[the jsonnet tutorial]. While writing a mapping you can validate it using `./validate.sh http://<path-to-timbuctoo> <name-of-dataset>` and finally execute it using `./apply.sh http://<path-to-timbuctoo> <name-of-dataset>`. These commands require docker to be installed on your system.
-
 === A note on the examples
 In the examples below I will use a very simple uploaded file that contains two collections. Persons and places.
 
