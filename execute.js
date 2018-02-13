@@ -397,7 +397,7 @@ async function execute() {
 
   let userId = null;
   if (state.userInfo && state.userInfo.authorization) {
-    userId = getUserInfo(state.userInfo.authorization); //already logged in
+    userId = await getUserInfo(state.userInfo.authorization); //already logged in
   }
   if (userId === null) {
     state.userInfo = await logInUser();
