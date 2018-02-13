@@ -441,7 +441,7 @@ async function execute() {
       state.mappingInput = await inquirer.prompt([
         {
           name: "mappingFile",
-          message: "where is the mapping file?",
+          message: `where is the mapping file? (You can specify a jsonnet file, or generate a json file yourself. Use \n\njsonnet --ext-str dataseturi=${dataSetUri} <your-file>\n\n to manually run jsonnet)`,
           type: "path",
           default: state.mappingInput.mappingFile == null ? process.cwd() : pathLib.dirname(state.mappingInput.mappingFile),
         },
