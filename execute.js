@@ -551,7 +551,7 @@ async function execute() {
         },
         {
           name: "delimiter",
-          message: "What is the character used to separate fields? (i.e. ;)",
+          message: "What is the character used to separate fields?",
           type: "input",
           default: state.input.delimiter == null ? ';' : state.input.delimiter,
         },
