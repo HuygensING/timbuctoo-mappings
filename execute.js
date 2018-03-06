@@ -526,7 +526,7 @@ async function execute() {
         const [userPart, dataSetPart] = state.input.dataSetId.split("__");
         const promise = fetch(timbuctoo_url + `/v5/${userPart}/${dataSetPart}/rml`, {
           method: "POST",
-          body: JSON.stringify(generatedFile, undefined, 2),
+          body: JSON.stringify(framedFile, undefined, 2),
           headers: {
             Authorization: state.userInfo.authorization
           }
