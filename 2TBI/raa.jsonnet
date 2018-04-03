@@ -16,10 +16,8 @@ rml.mappings([
       "http://schema.org/birthPlace": rml.joinField("placeOfBirthID", "raa_places", "placeID"),
       "http://schema.org/deathDate": rml.dataField(rml.types.edtf, rml.columnSource("dateOfDeath")),
       "http://schema.org/deathPlace": rml.joinField("placeOfDeathID", "raa_places", "placeID"),
-      "http://www.w3.org/2002/07/owl#sameAs": [
-        rml.dataField(rml.types.anyURI, rml.columnSource("bprURL")),
-        rml.dataField(rml.types.anyURI, rml.columnSource("viafURL")),
-      ]
+      "http://www.w3.org/2002/07/owl#sameAs": rml.iriField(rml.columnSource("bprURL")),
+      "http://schema.org/url": rml.dataField(rml.types.anyURI, rml.columnSource("viafURL"))
     },      
   ),
   rml.mapping("raa_publicOfficesHeld", "RAA_toogdag2018_update.xlsx", 2,
