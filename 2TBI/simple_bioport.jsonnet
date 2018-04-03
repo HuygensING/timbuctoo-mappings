@@ -9,7 +9,7 @@ local wikiDataJexl = "(v.Wikidata_id != null ? \"https://www.wikidata.org/wiki/\
 rml.mappings(std.flattenArrays([
     [rml.mapping("bioport_persons" + file, "BioPort_"+ file +"_13.xlsx", 1,
       rml.templateSource("http://www.biografischportaal.nl/persoon/{Bioport_id}"),
-      rml.constantSource(rml.datasetUri + "collection/Persons"),
+      rml.constantSource(rml.datasetUri + "collection/BioPortPerson"),
       {
         [rml.customPredicate("Bioport_id")]: rml.dataField(rml.types.string, rml.columnSource("Bioport_id")),
         [rml.customPredicate("Person_id")]: rml.dataField(rml.types.string, rml.columnSource("Person_id")),
@@ -40,8 +40,8 @@ rml.mappings(std.flattenArrays([
       }
     ),
     rml.mapping("bioport_namevariants" + file, "BioPort_" + file + "_13.xlsx", 2,
-      rml.templateSource(rml.datasetUri + "collection/Persons/{Person_id}"),
-      rml.constantSource(rml.datasetUri + "collection/Persons"),
+      rml.templateSource(rml.datasetUri + "http://www.biografischportaal.nl/persoon/{Bioport_id}"),
+      rml.constantSource(rml.datasetUri + "collection/BioPortPerson"),
       {
         [rml.customPredicate("Variant_id")]: rml.dataField(rml.types.string, rml.columnSource("Variant_id")),      
         [rml.customPredicate("Bioport_id")]: rml.dataField(rml.types.string, rml.columnSource("Bioport_id")),
