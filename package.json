@@ -7,7 +7,7 @@
     "inquirer": "^5.0.1",
     "inquirer-path": "^1.0.0-beta5",
     "jsonld": "^0.5.18",
-    "node-fetch": "^1.7.3",
+    "node-fetch": "^2.6.7",
     "opn": "^5.2.0"
   }
 }
